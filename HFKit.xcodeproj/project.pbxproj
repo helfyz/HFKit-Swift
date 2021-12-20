@@ -13,6 +13,10 @@
 		A80DE9332770736D0068AD6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9312770736D0068AD6E /* Main.storyboard */; };
 		A80DE9352770736F0068AD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9342770736F0068AD6E /* Assets.xcassets */; };
 		A80DE9382770736F0068AD6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9362770736F0068AD6E /* LaunchScreen.storyboard */; };
+		A80DE9452770737E0068AD6E /* TableViewManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9402770737E0068AD6E /* TableViewManger.swift */; };
+		A80DE9462770737E0068AD6E /* TableMangerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9412770737E0068AD6E /* TableMangerCellModel.swift */; };
+		A80DE9472770737E0068AD6E /* TableViewMangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9422770737E0068AD6E /* TableViewMangerCell.swift */; };
+		A80DE9482770737E0068AD6E /* LinkageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9442770737E0068AD6E /* LinkageManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A80DE9342770736F0068AD6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80DE9372770736F0068AD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A80DE9392770736F0068AD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A80DE9402770737E0068AD6E /* TableViewManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewManger.swift; sourceTree = "<group>"; };
+		A80DE9412770737E0068AD6E /* TableMangerCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableMangerCellModel.swift; sourceTree = "<group>"; };
+		A80DE9422770737E0068AD6E /* TableViewMangerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewMangerCell.swift; sourceTree = "<group>"; };
+		A80DE9442770737E0068AD6E /* LinkageManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkageManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 		A80DE92A2770736D0068AD6E /* HFKit */ = {
 			isa = PBXGroup;
 			children = (
+				A80DE9432770737E0068AD6E /* HFLinkageManger */,
+				A80DE93F2770737E0068AD6E /* HFTableManger */,
 				A80DE92B2770736D0068AD6E /* AppDelegate.swift */,
 				A80DE92D2770736D0068AD6E /* SceneDelegate.swift */,
 				A80DE92F2770736D0068AD6E /* ViewController.swift */,
@@ -65,6 +75,24 @@
 				A80DE9392770736F0068AD6E /* Info.plist */,
 			);
 			path = HFKit;
+			sourceTree = "<group>";
+		};
+		A80DE93F2770737E0068AD6E /* HFTableManger */ = {
+			isa = PBXGroup;
+			children = (
+				A80DE9402770737E0068AD6E /* TableViewManger.swift */,
+				A80DE9412770737E0068AD6E /* TableMangerCellModel.swift */,
+				A80DE9422770737E0068AD6E /* TableViewMangerCell.swift */,
+			);
+			path = HFTableManger;
+			sourceTree = "<group>";
+		};
+		A80DE9432770737E0068AD6E /* HFLinkageManger */ = {
+			isa = PBXGroup;
+			children = (
+				A80DE9442770737E0068AD6E /* LinkageManger.swift */,
+			);
+			path = HFLinkageManger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80DE9482770737E0068AD6E /* LinkageManger.swift in Sources */,
 				A80DE9302770736D0068AD6E /* ViewController.swift in Sources */,
+				A80DE9472770737E0068AD6E /* TableViewMangerCell.swift in Sources */,
+				A80DE9462770737E0068AD6E /* TableMangerCellModel.swift in Sources */,
+				A80DE9452770737E0068AD6E /* TableViewManger.swift in Sources */,
 				A80DE92C2770736D0068AD6E /* AppDelegate.swift in Sources */,
 				A80DE92E2770736D0068AD6E /* SceneDelegate.swift in Sources */,
 			);
