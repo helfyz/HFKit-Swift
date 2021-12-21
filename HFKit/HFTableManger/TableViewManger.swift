@@ -134,23 +134,22 @@ extension TableViewManger: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         sectionModel[section].header?.view
     }
-    
-    
 }
 extension TableViewManger: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = sectionModel[indexPath.section].cellModls[indexPath.row]
-        if let action = model.action{
-            self.delegate?.perform(action)
-        } else if let callBack = model.callback, let cell = tableView.cellForRow(at: indexPath) {
-            callBack(cell, model)
-        } else if flags.didSelectRow {
-            self.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+        if flags.didSelectRow {
+           self.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+        } else {
+            let model = sectionModel[indexPath.section].cellModls[indexPath.row]
+            if let action = model.action{
+                self.delegate?.perform(action)
+            } else if let callBack = model.callback, let cell = tableView.cellForRow(at: indexPath) {
+                callBack(cell, model)
+            }
         }
     }
 }
-
 /*
  scrollViewDidScroll 和其他代理不一样，需要单独处理下，这里是通过nofity 来的
 */

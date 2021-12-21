@@ -6,11 +6,9 @@
 //
 
 import UIKit
-
 class LinkageManger: NSObject {
     var outer: UIScrollView?
     var inner: UIScrollView?
-    
     
     func scrollerDidScrollToBottom(scroller:UIScrollView) -> Bool {
         let dif = scroller.contentSize.height - scroller.frame.size.height - scroller.contentInset.bottom
@@ -30,19 +28,15 @@ class LinkageManger: NSObject {
         scroller.contentOffset = CGPoint(x: 0, y: -scroller.contentInset.top)
     }
     
-//    func adjustScrollViewToTargetContentInsetIfNeeded(scroller: UIScrollView, insets:UIEdgeInsets) {
-//        insets.
-//    }
-    
     func scrollViewDidScroll(scroller:UIScrollView) {
+        guard let inner = inner else {
+            return
+        }
+        guard let outer = outer else {
+            return
+        }
         switch scroller {
             case outer:
-                guard let inner = inner else {
-                    return
-                }
-                guard let outer = outer else {
-                    return
-                }
                 let innerToTop = scrollerDidScrollToTop(scroller: inner)
                 if innerToTop {
                     let isOuterToBottom = scrollerDidScrollToBottom(scroller: outer)
@@ -57,8 +51,15 @@ class LinkageManger: NSObject {
                 }
                 break
             case inner:
-                break
-              
+            //外部到底
+            let isOuterToBottom = scrollerDidScrollToBottom(scroller: outer)
+            if !isOuterToBottom {
+                let isOuterToTop = scrollerDidScrollToTop(scroller: outer)
+                if !isOuterToTop {
+                    scrollToTop(scroller: inner)
+                }
+            }
+            break
             default:break
         }
      }
