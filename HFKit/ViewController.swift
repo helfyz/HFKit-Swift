@@ -7,40 +7,32 @@
 import UIKit
 
 class ViewController: UIViewController {
+   lazy var linkageViewController:LinkageViewController = {
+       let viewController = LinkageViewController()
+//       viewController.fullScreen = true
+       return viewController
+    }()
     
-    var tableManger = TableViewManger()
-    override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-     
-        tableManger.setupTabView(view: self.view)
-        tableManger.delegate = self
-        let array = Array(0...100)
-        let section = TableMangerSectionModel.sectionFor(data: array, cellClsName: "UITableViewCell") { cell, cellModel in
-            print(cellModel.data ?? "1")
-        }
-        
-        for cellModel in section.cellModls {
-            cellModel.cellConfig = { cell, cellModel in
-               cell.textLabel?.text = "\(cellModel.data as? Int ?? 0)"
-           }
-        }
-        tableManger.setupDatas(datas: [section])
+       linkageViewController.headerTotalHeight = 100
+      
+       view.addSubview(linkageViewController.view)
+       NSLayoutConstraint.activate([
+            linkageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            linkageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            linkageViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+            linkageViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor)
+       ]);
+    
+       let arr = [
+        LinkageModel(title: "测试2", viewController: TestCollectionViewController()),
+        LinkageModel(title: "测试1", viewController: TestTableViewController()),
+                ]
+       linkageViewController.setupModels(models: arr, selected: 0)
+      
+                               
+       
     }
 }
-extension ViewController: UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("didSelectRowAt")
-//    }
-}
-
-extension ViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("111")
-    }
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("222")
-    }
-}
-

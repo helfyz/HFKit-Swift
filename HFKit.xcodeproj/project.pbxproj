@@ -13,13 +13,16 @@
 		A80DE9332770736D0068AD6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9312770736D0068AD6E /* Main.storyboard */; };
 		A80DE9352770736F0068AD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9342770736F0068AD6E /* Assets.xcassets */; };
 		A80DE9382770736F0068AD6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9362770736F0068AD6E /* LaunchScreen.storyboard */; };
-		A80DE9452770737E0068AD6E /* TableViewManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9402770737E0068AD6E /* TableViewManger.swift */; };
-		A80DE9462770737E0068AD6E /* TableMangerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9412770737E0068AD6E /* TableMangerCellModel.swift */; };
-		A80DE9472770737E0068AD6E /* TableViewMangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9422770737E0068AD6E /* TableViewMangerCell.swift */; };
+		A80DE9452770737E0068AD6E /* ListViewManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9402770737E0068AD6E /* ListViewManger.swift */; };
+		A80DE9462770737E0068AD6E /* MangerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9412770737E0068AD6E /* MangerCellModel.swift */; };
+		A80DE9472770737E0068AD6E /* MangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9422770737E0068AD6E /* MangerCell.swift */; };
 		A80DE9482770737E0068AD6E /* LinkageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9442770737E0068AD6E /* LinkageManger.swift */; };
 		A80DE94A27707B040068AD6E /* LinkageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94927707B040068AD6E /* LinkageViewController.swift */; };
 		A80DE94C27707C0E0068AD6E /* LinkageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94B27707C0E0068AD6E /* LinkageModel.swift */; };
 		A80DE94E277086B20068AD6E /* LinkageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94D277086B20068AD6E /* LinkageTitleView.swift */; };
+		A80DE9502771743E0068AD6E /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94F2771743E0068AD6E /* TestTableViewController.swift */; };
+		A80DE9572771AC140068AD6E /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */; };
+		A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +34,16 @@
 		A80DE9342770736F0068AD6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80DE9372770736F0068AD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A80DE9392770736F0068AD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A80DE9402770737E0068AD6E /* TableViewManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewManger.swift; sourceTree = "<group>"; };
-		A80DE9412770737E0068AD6E /* TableMangerCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableMangerCellModel.swift; sourceTree = "<group>"; };
-		A80DE9422770737E0068AD6E /* TableViewMangerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewMangerCell.swift; sourceTree = "<group>"; };
+		A80DE9402770737E0068AD6E /* ListViewManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewManger.swift; sourceTree = "<group>"; };
+		A80DE9412770737E0068AD6E /* MangerCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MangerCellModel.swift; sourceTree = "<group>"; };
+		A80DE9422770737E0068AD6E /* MangerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MangerCell.swift; sourceTree = "<group>"; };
 		A80DE9442770737E0068AD6E /* LinkageManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkageManger.swift; sourceTree = "<group>"; };
 		A80DE94927707B040068AD6E /* LinkageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageViewController.swift; sourceTree = "<group>"; };
 		A80DE94B27707C0E0068AD6E /* LinkageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageModel.swift; sourceTree = "<group>"; };
 		A80DE94D277086B20068AD6E /* LinkageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageTitleView.swift; sourceTree = "<group>"; };
+		A80DE94F2771743E0068AD6E /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
+		A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageFullPageLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				A80DE9432770737E0068AD6E /* HFLinkageViewController */,
-				A80DE93F2770737E0068AD6E /* HFTableManger */,
+				A80DE93F2770737E0068AD6E /* ListViewManger */,
 				A80DE92B2770736D0068AD6E /* AppDelegate.swift */,
 				A80DE92D2770736D0068AD6E /* SceneDelegate.swift */,
 				A80DE92F2770736D0068AD6E /* ViewController.swift */,
+				A80DE94F2771743E0068AD6E /* TestTableViewController.swift */,
+				A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */,
 				A80DE9312770736D0068AD6E /* Main.storyboard */,
 				A80DE9342770736F0068AD6E /* Assets.xcassets */,
 				A80DE9362770736F0068AD6E /* LaunchScreen.storyboard */,
@@ -83,19 +91,20 @@
 			path = HFKit;
 			sourceTree = "<group>";
 		};
-		A80DE93F2770737E0068AD6E /* HFTableManger */ = {
+		A80DE93F2770737E0068AD6E /* ListViewManger */ = {
 			isa = PBXGroup;
 			children = (
-				A80DE9402770737E0068AD6E /* TableViewManger.swift */,
-				A80DE9412770737E0068AD6E /* TableMangerCellModel.swift */,
-				A80DE9422770737E0068AD6E /* TableViewMangerCell.swift */,
+				A80DE9402770737E0068AD6E /* ListViewManger.swift */,
+				A80DE9412770737E0068AD6E /* MangerCellModel.swift */,
+				A80DE9422770737E0068AD6E /* MangerCell.swift */,
 			);
-			path = HFTableManger;
+			path = ListViewManger;
 			sourceTree = "<group>";
 		};
 		A80DE9432770737E0068AD6E /* HFLinkageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */,
 				A80DE9442770737E0068AD6E /* LinkageManger.swift */,
 				A80DE94B27707C0E0068AD6E /* LinkageModel.swift */,
 				A80DE94927707B040068AD6E /* LinkageViewController.swift */,
@@ -175,13 +184,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80DE9502771743E0068AD6E /* TestTableViewController.swift in Sources */,
 				A80DE94A27707B040068AD6E /* LinkageViewController.swift in Sources */,
+				A80DE9572771AC140068AD6E /* TestCollectionViewController.swift in Sources */,
 				A80DE9482770737E0068AD6E /* LinkageManger.swift in Sources */,
 				A80DE9302770736D0068AD6E /* ViewController.swift in Sources */,
 				A80DE94C27707C0E0068AD6E /* LinkageModel.swift in Sources */,
-				A80DE9472770737E0068AD6E /* TableViewMangerCell.swift in Sources */,
-				A80DE9462770737E0068AD6E /* TableMangerCellModel.swift in Sources */,
-				A80DE9452770737E0068AD6E /* TableViewManger.swift in Sources */,
+				A80DE9472770737E0068AD6E /* MangerCell.swift in Sources */,
+				A80DE9462770737E0068AD6E /* MangerCellModel.swift in Sources */,
+				A80DE9452770737E0068AD6E /* ListViewManger.swift in Sources */,
+				A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */,
 				A80DE92C2770736D0068AD6E /* AppDelegate.swift in Sources */,
 				A80DE92E2770736D0068AD6E /* SceneDelegate.swift in Sources */,
 				A80DE94E277086B20068AD6E /* LinkageTitleView.swift in Sources */,
