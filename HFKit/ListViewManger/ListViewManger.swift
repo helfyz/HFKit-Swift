@@ -23,16 +23,18 @@ class ListViewManger: NSObject {
         registCellCalss()
     }
     
-    func setupListView(superView view:UIView) {
-        fatalError("Must Override")
-    }
+//    func setupListView(superView view:UIView) {
+//        fatalError("Must Override")
+//    }
     func registCellCalss() {
         fatalError("Must Override")
     }
 }
 
 class TableViewManger: ListViewManger {
-    var tableView = UITableView()
+    lazy var tableView = {
+        UITableView()
+    }()
     weak var delegate:UITableViewDelegate? {
         didSet {
             flags.didScroll = delegate?.responds(to: #selector(scrollViewDidScroll(_:))) ?? false
@@ -46,7 +48,7 @@ class TableViewManger: ListViewManger {
         }
     }
    
-    override func setupListView(superView view:UIView) {
+    func setupListView(superView view:UIView) {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -71,12 +73,13 @@ class TableViewManger: ListViewManger {
                 if let cellNib = cellModel.cellNib {
                     tableView.register(cellNib, forCellReuseIdentifier: cellModel.identifier)
                 } else {
-                    let path = Bundle.main.path(forResource: cellModel.cellClassName, ofType: "nib")
+                    let cellClassName = NSStringFromClass(cellModel.cellClass).components(separatedBy: ".").last ?? ""
+                    let path = Bundle.main.path(forResource: cellClassName, ofType: "nib")
                     if let path = path, fileManger.fileExists(atPath: path) {
-                        let nib = UINib(nibName: cellModel.cellClassName, bundle: nil)
+                        let nib = UINib(nibName: cellClassName, bundle: nil)
                         tableView.register(nib, forCellReuseIdentifier: cellModel.identifier)
                     } else {
-                        tableView.register(NSClassFromString(cellModel.cellClassName), forCellReuseIdentifier: cellModel.identifier)
+                        tableView.register(cellModel.cellClass, forCellReuseIdentifier: cellModel.identifier)
                     }
                 }
             }
@@ -170,7 +173,6 @@ extension TableViewManger: UITableViewDelegate {
 class CollectionViewManger: ListViewManger {
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: 100, height: 100)
         return UICollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
@@ -186,7 +188,10 @@ class CollectionViewManger: ListViewManger {
             collectionView.dataSource = self
         }
     }
-    override func setupListView(superView view:UIView){
+    func setupListView(superView view:UIView, layout:UICollectionViewLayout? = nil) {
+        if let layout = layout {
+            collectionView.collectionViewLayout = layout
+        }
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
@@ -210,12 +215,13 @@ class CollectionViewManger: ListViewManger {
                 if let cellNib = cellModel.cellNib {
                     collectionView.register(cellNib, forCellWithReuseIdentifier: cellModel.identifier)
                 } else {
-                    let path = Bundle.main.path(forResource: cellModel.cellClassName, ofType: "nib")
+                    let cellClassName = NSStringFromClass(cellModel.cellClass).components(separatedBy: ".").last ?? ""
+                    let path = Bundle.main.path(forResource: cellClassName, ofType: "nib")
                     if let path = path, fileManger.fileExists(atPath: path) {
-                        let nib = UINib(nibName: cellModel.cellClassName, bundle: nil)
+                        let nib = UINib(nibName: cellClassName, bundle: nil)
                         collectionView.register(nib, forCellWithReuseIdentifier: cellModel.identifier)
                     } else {
-                        collectionView.register(NSClassFromString(cellModel.cellClassName), forCellWithReuseIdentifier: cellModel.identifier)
+                        collectionView.register(cellModel.cellClass, forCellWithReuseIdentifier: cellModel.identifier)
                     }
                 }
             }

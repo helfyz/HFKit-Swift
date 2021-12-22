@@ -47,7 +47,7 @@ class LinkageManger: NSObject {
                         scrollToTop(scroller: outer)
                     }
                 } else {
-                    
+                    scrollToBottom(scroller: outer)
                 }
                 break
             case inner:

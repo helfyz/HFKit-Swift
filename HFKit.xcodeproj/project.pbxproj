@@ -23,6 +23,8 @@
 		A80DE9502771743E0068AD6E /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94F2771743E0068AD6E /* TestTableViewController.swift */; };
 		A80DE9572771AC140068AD6E /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */; };
 		A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */; };
+		A80DE95C2772F5990068AD6E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE95A2772F5980068AD6E /* TestCollectionViewCell.swift */; };
+		A80DE95D2772F5990068AD6E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80DE95B2772F5980068AD6E /* TestCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		A80DE94F2771743E0068AD6E /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
 		A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
 		A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageFullPageLayout.swift; sourceTree = "<group>"; };
+		A80DE95A2772F5980068AD6E /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		A80DE95B2772F5980068AD6E /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				A80DE92F2770736D0068AD6E /* ViewController.swift */,
 				A80DE94F2771743E0068AD6E /* TestTableViewController.swift */,
 				A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */,
+				A80DE95A2772F5980068AD6E /* TestCollectionViewCell.swift */,
+				A80DE95B2772F5980068AD6E /* TestCollectionViewCell.xib */,
 				A80DE9312770736D0068AD6E /* Main.storyboard */,
 				A80DE9342770736F0068AD6E /* Assets.xcassets */,
 				A80DE9362770736F0068AD6E /* LaunchScreen.storyboard */,
@@ -173,6 +179,7 @@
 			files = (
 				A80DE9382770736F0068AD6E /* LaunchScreen.storyboard in Resources */,
 				A80DE9352770736F0068AD6E /* Assets.xcassets in Resources */,
+				A80DE95D2772F5990068AD6E /* TestCollectionViewCell.xib in Resources */,
 				A80DE9332770736D0068AD6E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +201,7 @@
 				A80DE9462770737E0068AD6E /* MangerCellModel.swift in Sources */,
 				A80DE9452770737E0068AD6E /* ListViewManger.swift in Sources */,
 				A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */,
+				A80DE95C2772F5990068AD6E /* TestCollectionViewCell.swift in Sources */,
 				A80DE92C2770736D0068AD6E /* AppDelegate.swift in Sources */,
 				A80DE92E2770736D0068AD6E /* SceneDelegate.swift in Sources */,
 				A80DE94E277086B20068AD6E /* LinkageTitleView.swift in Sources */,

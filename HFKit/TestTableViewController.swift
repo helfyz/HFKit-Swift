@@ -21,7 +21,7 @@ class TestTableViewController: UIViewController,LinkageChildViewControllerProtoc
         tableManger.setupListView(superView: self.view)
            tableManger.delegate = self
            let array = Array(0...100)
-           let section = MangerSectionModel.sectionFor(data: array, cellClsName: "UITableViewCell") { cell, cellModel in
+            let section = MangerSectionModel.sectionFor(data: array, cellClass: UITableViewCell.self) { cell, cellModel in
                print(cellModel.data ?? "1")
            }
            
