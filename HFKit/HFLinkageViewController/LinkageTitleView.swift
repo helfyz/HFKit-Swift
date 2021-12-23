@@ -39,16 +39,16 @@ class LinkageTitleLayout :UICollectionViewFlowLayout {
     }
 }
 class LinkageTitleCell: CollectionViewMangerCell {
-  
     var label = UILabel()
-    
     override func setupView() {
-        self.contentView.addSubview(label)
+        self.addSubview(label)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            label.topAnchor.constraint(equalTo: self.topAnchor),
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
     override var cellModel:MangerCellModel? {
@@ -56,7 +56,6 @@ class LinkageTitleCell: CollectionViewMangerCell {
             if let pageModel = cellModel?.data as? LinkageModel {
                 label.text = pageModel.title
             }
-           
         }
     }
 }
@@ -66,12 +65,10 @@ class LinkageTitleView: UIView, LinkageTitleViewProtocol {
     var height: CGFloat = 40
     var listViewManger = CollectionViewManger()
     private var pageModels:[LinkageModelProtocol] = []
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
@@ -81,19 +78,11 @@ class LinkageTitleView: UIView, LinkageTitleViewProtocol {
         listViewManger.delegate = self
         listViewManger.collectionView.backgroundColor = .yellow
     }
-    
     func setupData(models:[LinkageModelProtocol], select index:Int) {
-        
-        let section = MangerSectionModel.sectionFor(data: models, cellClass: LinkageTitleCell.self) { cell, cellModel in
-            
-            
-        }
-        for cellModel in section.cellModls {
-            cellModel.cellConfig = { cell , cellModel in
-                if let cell = cell as? UICollectionViewCell {
-                    cell.backgroundColor = .red
-                }
-           }
+        let section = MangerSectionModel.sectionFor(data: models, cellClass: LinkageTitleCell.self) {[weak self]  cell, cellModel in
+            if let cell = cell as? UICollectionViewCell, let index = self?.listViewManger.collectionView.indexPath(for: cell)?.row, let titleView = self   {
+                self?.delegate?.linkageTitleView(view: titleView, indexDidChanged: index)
+            }
         }
         listViewManger.setupDatas(datas: [section])
   
@@ -105,6 +94,6 @@ class LinkageTitleView: UIView, LinkageTitleViewProtocol {
 }
 extension LinkageTitleView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 90, height: 40)
+        return CGSize.init(width: 100, height: height)
     }
 }

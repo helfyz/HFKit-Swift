@@ -13,9 +13,7 @@ import UIKit
     @objc optional  func scrollViewDidScroll(scroller:UIScrollView)
     // 页面出现 & 消失
     @objc optional func linkageControllerWillAppear(animation:Bool)
-    @objc optional func linkageControllerDidAppear(animation:Bool)
     @objc optional func linkageControllerWillDisappear(animation:Bool)
-    @objc optional func linkageControllerDidDisappear(animation:Bool)
     //linkpageVc的滚动 同步到 vc中，用于外部滚动的时候，内部可能需要对偏移做一些处理
     @objc optional func outerScrollViewDidScroll(scroller:UIScrollView)
     @objc optional func reload()
@@ -61,12 +59,22 @@ class LinkageViewController: UIViewController {
     }()
     var pageHeaderView : UIView?  // 头部视图
     fileprivate var _models: [LinkageModelProtocol] = []
+
     var pageModels:[LinkageModelProtocol] {
         get {
             _models
         }
     }
-    var curIndex: Int = 0
+    var curIndex: Int = 0 {
+        willSet {
+           let model = pageModels[curIndex]
+            model.viewController?.linkageControllerWillDisappear?(animation: true)
+        }
+        didSet {
+            let model = pageModels[curIndex]
+             model.viewController?.linkageControllerWillAppear?(animation: true)
+        }
+    }
     var linkpageManger: LinkageManger = LinkageManger()
     var pageHeaderHeight: CGFloat = 0
     var headerTotalHeight: CGFloat {
@@ -253,6 +261,11 @@ class LinkageViewController: UIViewController {
     }
 
 }
+extension LinkageViewController: LinkageTitleViewDelegate {
+    func linkageTitleView(view: LinkageTitleViewProtocol, indexDidChanged index: Int) {
+        
+    }
+}
 extension LinkageViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
@@ -306,6 +319,15 @@ extension LinkageViewController: UIScrollViewDelegate {
             }
         } else if scrollView.isEqual(contentView) {
             view.endEditing(true)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.isEqual(collectionView) {
+            let newIndex:Int = Int(scrollView.contentOffset.x / scrollView.frame.size.width + 0.5)
+            if curIndex != newIndex , newIndex >= 0 , newIndex < pageModels.count {
+                curIndex = newIndex
+            }
         }
     }
 }
