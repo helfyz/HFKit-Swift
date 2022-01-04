@@ -8,7 +8,7 @@
 import UIKit
 
 @objc protocol LinkageChildViewControllerProtocol: NSObjectProtocol {
-    var linkpageDelgate:LinkageManger? {get set}
+    var linkpageDelgate:LinkageManager? {get set}
     var scroller:UIScrollView? {get}
     @objc optional  func scrollViewDidScroll(scroller:UIScrollView)
     // 页面出现 & 消失
@@ -23,7 +23,6 @@ import UIKit
 class PageViewControllerCell: UICollectionViewCell {
     weak var viewController: LinkageChildViewControllerProtocol?
 }
-
 class LinkageCollectionView: UICollectionView { }
 
 class LinkageScroller: UIScrollView,UIGestureRecognizerDelegate {
@@ -37,8 +36,6 @@ class LinkageScroller: UIScrollView,UIGestureRecognizerDelegate {
         return true
    }
 }
-
-
 
 class LinkageViewController: UIViewController {
     var firstCanScrollerBounds: Bool = false
@@ -73,12 +70,13 @@ class LinkageViewController: UIViewController {
         didSet {
             let model = pageModels[curIndex]
              model.viewController?.linkageControllerWillAppear?(animation: true)
+            titleView.changeIndex(index: curIndex, animation: true)
         }
     }
-    var linkpageManger: LinkageManger = LinkageManger()
+    var linkpageManager: LinkageManager = LinkageManager()
     var pageHeaderHeight: CGFloat = 0
     var headerTotalHeight: CGFloat {
-        titleView.height + pageHeaderHeight
+        titleView.itemHeight + pageHeaderHeight
     }
     
     var bottomSpace: CGFloat = 0  // 底部留空
@@ -147,7 +145,9 @@ class LinkageViewController: UIViewController {
     }()
    
     lazy var titleView:LinkageTitleViewProtocol = {
-        LinkageTitleView()
+        let titleView = LinkageTitleView()
+        titleView.delegate = self
+        return titleView
     }() {
         willSet{
             if let titleView = titleView as? UIView {
@@ -162,7 +162,7 @@ class LinkageViewController: UIViewController {
                     titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
                     titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
                     titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
-                    titleView.heightAnchor.constraint(equalToConstant: self.titleView.height)
+                    titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
                 ])
             }
         }
@@ -188,7 +188,7 @@ class LinkageViewController: UIViewController {
                 titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
                 titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
                 titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
-                titleView.heightAnchor.constraint(equalToConstant: self.titleView.height)
+                titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
             ])
         }
         collectionView.reloadData()
@@ -203,7 +203,7 @@ class LinkageViewController: UIViewController {
                 titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
                 titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
                 titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
-                titleView.heightAnchor.constraint(equalToConstant: self.titleView.height)
+                titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
             ])
         }
         headerContainerView.removeConstraints(headerContainerView.constraints)
@@ -218,11 +218,7 @@ class LinkageViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             collectionView.heightAnchor.constraint(equalTo: contentScroller.heightAnchor, constant: -headerFixedHeight)
-        
         ])
-        
-
-        
     }
     // 设置空，表示去掉
     func setupPageHeader(header:UIView?, heigth:CGFloat) {
@@ -263,7 +259,8 @@ class LinkageViewController: UIViewController {
 }
 extension LinkageViewController: LinkageTitleViewDelegate {
     func linkageTitleView(view: LinkageTitleViewProtocol, indexDidChanged index: Int) {
-        
+        curIndex = index
+        collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
 extension LinkageViewController: UICollectionViewDelegate,UICollectionViewDataSource {
@@ -297,13 +294,13 @@ extension LinkageViewController: UICollectionViewDelegate,UICollectionViewDataSo
             }
         }
         
-        pageModel.viewController?.linkpageDelgate = linkpageManger
+        pageModel.viewController?.linkpageDelgate = linkpageManager
         if let inner = pageModel.viewController?.scroller {
-            linkpageManger.inner = inner
-            linkpageManger.outer = contentScroller
+            linkpageManager.inner = inner
+            linkpageManager.outer = contentScroller
         } else {
-            linkpageManger.inner = nil
-            linkpageManger.outer = contentScroller
+            linkpageManager.inner = nil
+            linkpageManager.outer = contentScroller
         }
         
         return cell
@@ -313,7 +310,7 @@ extension LinkageViewController: UICollectionViewDelegate,UICollectionViewDataSo
 extension LinkageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isEqual(contentScroller) {
-            linkpageManger.scrollViewDidScroll(scroller: scrollView)
+            linkpageManager.scrollViewDidScroll(scroller: scrollView)
             pageModels.forEach { model in
                 model.viewController?.outerScrollViewDidScroll?(scroller: scrollView)
             }

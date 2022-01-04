@@ -13,10 +13,10 @@
 		A80DE9332770736D0068AD6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9312770736D0068AD6E /* Main.storyboard */; };
 		A80DE9352770736F0068AD6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9342770736F0068AD6E /* Assets.xcassets */; };
 		A80DE9382770736F0068AD6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80DE9362770736F0068AD6E /* LaunchScreen.storyboard */; };
-		A80DE9452770737E0068AD6E /* ListViewManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9402770737E0068AD6E /* ListViewManger.swift */; };
-		A80DE9462770737E0068AD6E /* MangerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9412770737E0068AD6E /* MangerCellModel.swift */; };
-		A80DE9472770737E0068AD6E /* MangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9422770737E0068AD6E /* MangerCell.swift */; };
-		A80DE9482770737E0068AD6E /* LinkageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9442770737E0068AD6E /* LinkageManger.swift */; };
+		A80DE9452770737E0068AD6E /* ListViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9402770737E0068AD6E /* ListViewManager.swift */; };
+		A80DE9462770737E0068AD6E /* ListViewManagerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9412770737E0068AD6E /* ListViewManagerCellModel.swift */; };
+		A80DE9472770737E0068AD6E /* ListViewManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9422770737E0068AD6E /* ListViewManagerCell.swift */; };
+		A80DE9482770737E0068AD6E /* LinkageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9442770737E0068AD6E /* LinkageManager.swift */; };
 		A80DE94A27707B040068AD6E /* LinkageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94927707B040068AD6E /* LinkageViewController.swift */; };
 		A80DE94C27707C0E0068AD6E /* LinkageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94B27707C0E0068AD6E /* LinkageModel.swift */; };
 		A80DE94E277086B20068AD6E /* LinkageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE94D277086B20068AD6E /* LinkageTitleView.swift */; };
@@ -25,6 +25,18 @@
 		A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */; };
 		A80DE95C2772F5990068AD6E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80DE95A2772F5980068AD6E /* TestCollectionViewCell.swift */; };
 		A80DE95D2772F5990068AD6E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A80DE95B2772F5980068AD6E /* TestCollectionViewCell.xib */; };
+		A81B8042277EA5FD00FC70F8 /* LoggerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81B8040277EA5FD00FC70F8 /* LoggerTableViewCell.xib */; };
+		A81B8045277EAE0100FC70F8 /* LoggerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8043277EAE0100FC70F8 /* LoggerSettingViewController.swift */; };
+		A81B8046277EAE0100FC70F8 /* LoggerSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81B8044277EAE0100FC70F8 /* LoggerSettingViewController.xib */; };
+		A81B8048277EB58200FC70F8 /* UIScrollView+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */; };
+		A81B804A277EB5BB00FC70F8 /* HFNamSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8049277EB5BB00FC70F8 /* HFNamSpace.swift */; };
+		A81B804D2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */; };
+		A81B804E2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */; };
+		A8F9D889277D60BB00228829 /* LoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D888277D60B600228829 /* LoggerManager.swift */; };
+		A8F9D88B277D60F200228829 /* LoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D88A277D60F200228829 /* LoggerTableViewCell.swift */; };
+		A8F9D88D277DA30E00228829 /* DispatchQueue+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */; };
+		A8F9D894277DB24800228829 /* LoggerRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D892277DB24800228829 /* LoggerRootViewController.swift */; };
+		A8F9D895277DB24800228829 /* LoggerRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F9D893277DB24800228829 /* LoggerRootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +48,10 @@
 		A80DE9342770736F0068AD6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80DE9372770736F0068AD6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A80DE9392770736F0068AD6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A80DE9402770737E0068AD6E /* ListViewManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewManger.swift; sourceTree = "<group>"; };
-		A80DE9412770737E0068AD6E /* MangerCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MangerCellModel.swift; sourceTree = "<group>"; };
-		A80DE9422770737E0068AD6E /* MangerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MangerCell.swift; sourceTree = "<group>"; };
-		A80DE9442770737E0068AD6E /* LinkageManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkageManger.swift; sourceTree = "<group>"; };
+		A80DE9402770737E0068AD6E /* ListViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewManager.swift; sourceTree = "<group>"; };
+		A80DE9412770737E0068AD6E /* ListViewManagerCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewManagerCellModel.swift; sourceTree = "<group>"; };
+		A80DE9422770737E0068AD6E /* ListViewManagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewManagerCell.swift; sourceTree = "<group>"; };
+		A80DE9442770737E0068AD6E /* LinkageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkageManager.swift; sourceTree = "<group>"; };
 		A80DE94927707B040068AD6E /* LinkageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageViewController.swift; sourceTree = "<group>"; };
 		A80DE94B27707C0E0068AD6E /* LinkageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageModel.swift; sourceTree = "<group>"; };
 		A80DE94D277086B20068AD6E /* LinkageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageTitleView.swift; sourceTree = "<group>"; };
@@ -48,6 +60,18 @@
 		A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkageFullPageLayout.swift; sourceTree = "<group>"; };
 		A80DE95A2772F5980068AD6E /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		A80DE95B2772F5980068AD6E /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		A81B8040277EA5FD00FC70F8 /* LoggerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerTableViewCell.xib; sourceTree = "<group>"; };
+		A81B8043277EAE0100FC70F8 /* LoggerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSettingViewController.swift; sourceTree = "<group>"; };
+		A81B8044277EAE0100FC70F8 /* LoggerSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerSettingViewController.xib; sourceTree = "<group>"; };
+		A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+HF.swift"; sourceTree = "<group>"; };
+		A81B8049277EB5BB00FC70F8 /* HFNamSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFNamSpace.swift; sourceTree = "<group>"; };
+		A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSettingCollectionCell.swift; sourceTree = "<group>"; };
+		A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerSettingCollectionCell.xib; sourceTree = "<group>"; };
+		A8F9D888277D60B600228829 /* LoggerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerManager.swift; sourceTree = "<group>"; };
+		A8F9D88A277D60F200228829 /* LoggerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTableViewCell.swift; sourceTree = "<group>"; };
+		A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+HF.swift"; sourceTree = "<group>"; };
+		A8F9D892277DB24800228829 /* LoggerRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerRootViewController.swift; sourceTree = "<group>"; };
+		A8F9D893277DB24800228829 /* LoggerRootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerRootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +104,7 @@
 		A80DE92A2770736D0068AD6E /* HFKit */ = {
 			isa = PBXGroup;
 			children = (
-				A80DE9432770737E0068AD6E /* HFLinkageViewController */,
-				A80DE93F2770737E0068AD6E /* ListViewManger */,
+				A84046962779ABEF0013FE05 /* LibClasses */,
 				A80DE92B2770736D0068AD6E /* AppDelegate.swift */,
 				A80DE92D2770736D0068AD6E /* SceneDelegate.swift */,
 				A80DE92F2770736D0068AD6E /* ViewController.swift */,
@@ -97,26 +120,55 @@
 			path = HFKit;
 			sourceTree = "<group>";
 		};
-		A80DE93F2770737E0068AD6E /* ListViewManger */ = {
+		A80DE93F2770737E0068AD6E /* ListViewManager */ = {
 			isa = PBXGroup;
 			children = (
-				A80DE9402770737E0068AD6E /* ListViewManger.swift */,
-				A80DE9412770737E0068AD6E /* MangerCellModel.swift */,
-				A80DE9422770737E0068AD6E /* MangerCell.swift */,
+				A80DE9402770737E0068AD6E /* ListViewManager.swift */,
+				A80DE9412770737E0068AD6E /* ListViewManagerCellModel.swift */,
+				A80DE9422770737E0068AD6E /* ListViewManagerCell.swift */,
 			);
-			path = ListViewManger;
+			path = ListViewManager;
 			sourceTree = "<group>";
 		};
 		A80DE9432770737E0068AD6E /* HFLinkageViewController */ = {
 			isa = PBXGroup;
 			children = (
 				A80DE9582771B85E0068AD6E /* LinkageFullPageLayout.swift */,
-				A80DE9442770737E0068AD6E /* LinkageManger.swift */,
+				A80DE9442770737E0068AD6E /* LinkageManager.swift */,
 				A80DE94B27707C0E0068AD6E /* LinkageModel.swift */,
 				A80DE94927707B040068AD6E /* LinkageViewController.swift */,
 				A80DE94D277086B20068AD6E /* LinkageTitleView.swift */,
 			);
 			path = HFLinkageViewController;
+			sourceTree = "<group>";
+		};
+		A84046962779ABEF0013FE05 /* LibClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A81B8049277EB5BB00FC70F8 /* HFNamSpace.swift */,
+				A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */,
+				A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */,
+				A8F9D887277D608E00228829 /* HFLogger */,
+				A80DE9432770737E0068AD6E /* HFLinkageViewController */,
+				A80DE93F2770737E0068AD6E /* ListViewManager */,
+			);
+			path = LibClasses;
+			sourceTree = "<group>";
+		};
+		A8F9D887277D608E00228829 /* HFLogger */ = {
+			isa = PBXGroup;
+			children = (
+				A8F9D888277D60B600228829 /* LoggerManager.swift */,
+				A8F9D892277DB24800228829 /* LoggerRootViewController.swift */,
+				A8F9D893277DB24800228829 /* LoggerRootViewController.xib */,
+				A8F9D88A277D60F200228829 /* LoggerTableViewCell.swift */,
+				A81B8040277EA5FD00FC70F8 /* LoggerTableViewCell.xib */,
+				A81B8043277EAE0100FC70F8 /* LoggerSettingViewController.swift */,
+				A81B8044277EAE0100FC70F8 /* LoggerSettingViewController.xib */,
+				A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */,
+				A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */,
+			);
+			path = HFLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +230,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80DE9382770736F0068AD6E /* LaunchScreen.storyboard in Resources */,
+				A8F9D895277DB24800228829 /* LoggerRootViewController.xib in Resources */,
+				A81B804E2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib in Resources */,
 				A80DE9352770736F0068AD6E /* Assets.xcassets in Resources */,
 				A80DE95D2772F5990068AD6E /* TestCollectionViewCell.xib in Resources */,
 				A80DE9332770736D0068AD6E /* Main.storyboard in Resources */,
+				A81B8046277EAE0100FC70F8 /* LoggerSettingViewController.xib in Resources */,
+				A81B8042277EA5FD00FC70F8 /* LoggerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,16 +249,24 @@
 			files = (
 				A80DE9502771743E0068AD6E /* TestTableViewController.swift in Sources */,
 				A80DE94A27707B040068AD6E /* LinkageViewController.swift in Sources */,
+				A81B8048277EB58200FC70F8 /* UIScrollView+HF.swift in Sources */,
 				A80DE9572771AC140068AD6E /* TestCollectionViewController.swift in Sources */,
-				A80DE9482770737E0068AD6E /* LinkageManger.swift in Sources */,
+				A80DE9482770737E0068AD6E /* LinkageManager.swift in Sources */,
 				A80DE9302770736D0068AD6E /* ViewController.swift in Sources */,
 				A80DE94C27707C0E0068AD6E /* LinkageModel.swift in Sources */,
-				A80DE9472770737E0068AD6E /* MangerCell.swift in Sources */,
-				A80DE9462770737E0068AD6E /* MangerCellModel.swift in Sources */,
-				A80DE9452770737E0068AD6E /* ListViewManger.swift in Sources */,
+				A80DE9472770737E0068AD6E /* ListViewManagerCell.swift in Sources */,
+				A81B804D2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift in Sources */,
+				A8F9D88B277D60F200228829 /* LoggerTableViewCell.swift in Sources */,
+				A80DE9462770737E0068AD6E /* ListViewManagerCellModel.swift in Sources */,
+				A80DE9452770737E0068AD6E /* ListViewManager.swift in Sources */,
 				A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */,
+				A8F9D889277D60BB00228829 /* LoggerManager.swift in Sources */,
+				A8F9D894277DB24800228829 /* LoggerRootViewController.swift in Sources */,
 				A80DE95C2772F5990068AD6E /* TestCollectionViewCell.swift in Sources */,
 				A80DE92C2770736D0068AD6E /* AppDelegate.swift in Sources */,
+				A81B804A277EB5BB00FC70F8 /* HFNamSpace.swift in Sources */,
+				A81B8045277EAE0100FC70F8 /* LoggerSettingViewController.swift in Sources */,
+				A8F9D88D277DA30E00228829 /* DispatchQueue+HF.swift in Sources */,
 				A80DE92E2770736D0068AD6E /* SceneDelegate.swift in Sources */,
 				A80DE94E277086B20068AD6E /* LinkageTitleView.swift in Sources */,
 			);

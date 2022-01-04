@@ -7,16 +7,15 @@
 
 import UIKit
 
-class TestCollectionViewCell: CollectionViewMangerCell {
+class TestCollectionViewCell: CollectionViewManagerCell {
     
     
     @IBOutlet weak var label: UILabel!
-    override var cellModel:MangerCellModel? {
+    override var cellModel:ListViewManagerCellModel? {
         didSet {
             if let index = cellModel?.data as? Int {
                 label.text = "\(index)"
             }
-           
         }
     }
    

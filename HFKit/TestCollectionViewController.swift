@@ -26,32 +26,24 @@ class TestLayout :UICollectionViewFlowLayout {
 }
 
 class TestCollectionViewController: UIViewController,LinkageChildViewControllerProtocol,UICollectionViewDelegate {
-    weak var linkpageDelgate: LinkageManger?
+    weak var linkpageDelgate: LinkageManager?
     var scroller: UIScrollView? {
         get {
-           return listViewManger.collectionView
+           return listViewManager.collectionView
         }
     }
     
-    var listViewManger = CollectionViewManger()
+    var listViewManager = CollectionViewManager()
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        listViewManger.setupListView(superView: self.view, layout: TestLayout())
-        listViewManger.delegate = self
+        listViewManager.setupListView(superView: self.view, layout: TestLayout())
+        listViewManager.delegate = self
            let array = Array(0...100)
-        let section = MangerSectionModel.sectionFor(data: array, cellClass: TestCollectionViewCell.self) { cell, cellModel in
+        let section = ListViewManagerSection.sectionFor(data: array, cellClass: TestCollectionViewCell.self) { cell, cellModel in
                print(cellModel.data ?? "1")
            }
-           
-//           for cellModel in section.cellModls {
-//               cellModel.cellConfig = { cell , cellModel in
-//                   if let cell = cell as? UICollectionViewCell {
-//                       cell.backgroundColor = .red
-//                   }
-//              }
-//           }
-        listViewManger.setupDatas(datas: [section])
+        listViewManager.setupDatas(datas: [section])
        
         // Do any additional setup after loading the view.
     }

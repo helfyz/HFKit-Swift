@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TestTableViewCell : TableViewMangerCell {
-    override var cellModel:MangerCellModel? {
+class TestTableViewCell : TableViewManagerCell {
+    override var cellModel:ListViewManagerCellModel? {
         didSet {
             if let index = cellModel?.data as? Int {
                 textLabel?.text = "\(index)"
@@ -22,25 +22,37 @@ class TestTableViewCell : TableViewMangerCell {
 }
 
 class TestTableViewController: UIViewController,LinkageChildViewControllerProtocol, UITableViewDelegate {
-    weak var linkpageDelgate: LinkageManger?
+    weak var linkpageDelgate: LinkageManager?
     var scroller: UIScrollView? {
         get {
-           return tableManger.tableView
+           return tableManager.tableView
         }
     }
-    var tableManger = TableViewManger()
+    var tableManager = TableViewManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableManger.setupListView(superView: self.view)
-           tableManger.delegate = self
+        tableManager.setupListView(superView: self.view)
+           tableManager.delegate = self
            let array = Array(0...100)
-            let section = MangerSectionModel.sectionFor(data: array, cellClass: TestTableViewCell.self) { cell, cellModel in
+            let section = ListViewManagerSection.sectionFor(data: array, cellClass: TestTableViewCell.self) { cell, cellModel in
+                let index = cellModel.data as? Int ?? 0
+                if index == 0 {
+                    LoggerManager.manager.show()
+                } else if index == 10 {
+                    LoggerManager.manager.hidden()
+                }
+             
+                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .normal)
+                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .warning)
+                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .error)
+             
                print(cellModel.data ?? "1")
            }
     
-           tableManger.setupDatas(datas: [section])
+           tableManager.setupDatas(datas: [section])
        
         // Do any additional setup after loading the view.
+        
     }
     
     func reload() {
