@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 
 struct LoggerManagerFiltter {
-    var tags:[String]?     // 过滤的tag
+    var types:Set<LoggerCellModel.LogType> = []
+    var tags:Set<String> = []     // 过滤的tag
     var key:String?       // 需要的过滤内容
 }
+
+
 class LoggerWindow: UIWindow {
     
     var fullScreen:Bool = false {
@@ -47,7 +50,7 @@ class LoggerWindow: UIWindow {
 class LoggerManager: NSObject, UITableViewDelegate {
  
     static let manager = LoggerManager()
-    open var loggerAllTags:Set<String> = []    // 使用日志系统中，所有的tags
+    open var loggerAllTags:Set<String> = []    // 使用日志系统中，所有的tags， 
     
     var loggerDatas:[LoggerCellModel] = []   // 日志原始记录
     let semaphore: DispatchSemaphore = DispatchSemaphore.init(value: 1)
@@ -115,10 +118,22 @@ class LoggerManager: NSObject, UITableViewDelegate {
         }
     }
     func flitterHandle(cellModel:LoggerCellModel) -> Bool{
+        
+        var typeTag = true
+        // 如果没有 type 表示全数据 不过滤type
+        if self.fillter.types.count > 0 {
+            typeTag = self.fillter.types.contains(cellModel.logType)
+        }
+        // type 被过滤掉的情况，就不用判断后续了
+        if !typeTag {
+            return false
+        }
+        
+        
         var flitterTag = true
         // 如果没有 tags 表示全数据 不过滤tag
-        if let tag = cellModel.tag, let tags = self.fillter.tags, tags.count > 0 {
-            flitterTag = tags.contains(tag)
+        if let tag = cellModel.tag, self.fillter.tags.count > 0 {
+            flitterTag = self.fillter.tags.contains(tag)
         }
         // tag 被过滤掉的情况，就不用判断key了
         if !flitterTag {

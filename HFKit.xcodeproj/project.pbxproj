@@ -29,7 +29,6 @@
 		A81B8045277EAE0100FC70F8 /* LoggerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8043277EAE0100FC70F8 /* LoggerSettingViewController.swift */; };
 		A81B8046277EAE0100FC70F8 /* LoggerSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81B8044277EAE0100FC70F8 /* LoggerSettingViewController.xib */; };
 		A81B8048277EB58200FC70F8 /* UIScrollView+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */; };
-		A81B804A277EB5BB00FC70F8 /* HFNamSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8049277EB5BB00FC70F8 /* HFNamSpace.swift */; };
 		A81B804D2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */; };
 		A81B804E2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */; };
 		A8F9D889277D60BB00228829 /* LoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D888277D60B600228829 /* LoggerManager.swift */; };
@@ -64,7 +63,6 @@
 		A81B8043277EAE0100FC70F8 /* LoggerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSettingViewController.swift; sourceTree = "<group>"; };
 		A81B8044277EAE0100FC70F8 /* LoggerSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerSettingViewController.xib; sourceTree = "<group>"; };
 		A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+HF.swift"; sourceTree = "<group>"; };
-		A81B8049277EB5BB00FC70F8 /* HFNamSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFNamSpace.swift; sourceTree = "<group>"; };
 		A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSettingCollectionCell.swift; sourceTree = "<group>"; };
 		A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerSettingCollectionCell.xib; sourceTree = "<group>"; };
 		A8F9D888277D60B600228829 /* LoggerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerManager.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 		A84046962779ABEF0013FE05 /* LibClasses */ = {
 			isa = PBXGroup;
 			children = (
-				A81B8049277EB5BB00FC70F8 /* HFNamSpace.swift */,
 				A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */,
 				A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */,
 				A8F9D887277D608E00228829 /* HFLogger */,
@@ -264,7 +261,6 @@
 				A8F9D894277DB24800228829 /* LoggerRootViewController.swift in Sources */,
 				A80DE95C2772F5990068AD6E /* TestCollectionViewCell.swift in Sources */,
 				A80DE92C2770736D0068AD6E /* AppDelegate.swift in Sources */,
-				A81B804A277EB5BB00FC70F8 /* HFNamSpace.swift in Sources */,
 				A81B8045277EAE0100FC70F8 /* LoggerSettingViewController.swift in Sources */,
 				A8F9D88D277DA30E00228829 /* DispatchQueue+HF.swift in Sources */,
 				A80DE92E2770736D0068AD6E /* SceneDelegate.swift in Sources */,

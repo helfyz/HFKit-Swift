@@ -47,11 +47,6 @@ class LoggerRootViewController: UIViewController {
     @IBAction func textDidChanged(_ sender: Any) {
        // TODO 输入过程进行匹配有点耗性能
     }
-    
-    
-    
-    
-
 }
 extension LoggerRootViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

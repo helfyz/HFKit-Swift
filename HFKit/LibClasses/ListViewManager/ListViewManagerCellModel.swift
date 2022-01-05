@@ -63,7 +63,21 @@ class ListViewManagerSupplementary: NSObject {
     // view 的类名。 viewNib 如果view使用xib，且xib的文件名和类名不同，需要传入viewNib
     var viewClass: AnyClass?
     var viewNib: UINib?
-    var identifier: String?
+    private var _identifier: String?
+    var identifier: String? {
+        get {
+            if _identifier != nil {
+                return _identifier
+            }
+            if let viewClass = viewClass {
+                return NSStringFromClass(viewClass)
+            }
+            return nil
+        }
+        set {
+            _identifier = newValue
+        }
+    }
     
     var canReusable: Bool {
         return identifier != nil && (viewClass != nil || viewNib != nil)

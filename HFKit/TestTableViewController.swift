@@ -42,9 +42,9 @@ class TestTableViewController: UIViewController,LinkageChildViewControllerProtoc
                     LoggerManager.manager.hidden()
                 }
              
-                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .normal)
-                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .warning)
-                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .error)
+                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .normal, tag: "网络")
+                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .warning, tag: "埋点")
+                LoggerManager.manager.log(message: "\(cellModel.data as? Int ?? 0)", type: .error, tag: "页面Log")
              
                print(cellModel.data ?? "1")
            }

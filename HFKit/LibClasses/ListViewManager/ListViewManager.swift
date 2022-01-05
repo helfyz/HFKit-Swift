@@ -166,7 +166,6 @@ class TableViewManager: ListViewManager {
                 }
         }
         needRegistSupplementarys.forEach { (identifier: String, supplementary: ListViewManagerSupplementary) in
-           
             if let viewNib = supplementary.viewNib {
                 tableView.register(viewNib, forHeaderFooterViewReuseIdentifier: identifier)
             } else  if let viewClass = supplementary.viewClass  {
@@ -372,6 +371,9 @@ class CollectionViewManager: ListViewManager {
                    }
             }
         }
+        collectionView.register(CollectionViewTempSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionViewManager.tempSupplementaryIdentifier)
+        collectionView.register(CollectionViewTempSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CollectionViewManager.tempSupplementaryIdentifier)
+   
     }
     
     override func forwardingTarget(for aSelector: Selector!) -> Any? {

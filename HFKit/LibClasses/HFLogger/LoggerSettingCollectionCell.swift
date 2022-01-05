@@ -29,11 +29,11 @@ class LoggerSettingCollectionCell: CollectionViewManagerCell {
                 titleLabel.text = cellModel.title
                 
                 if cellModel.isSelect {
-                    titleLabel.textColor = .gray
-                    self.layer.borderColor = UIColor.gray.cgColor
+                    titleLabel.textColor = .green
+                    self.layer.borderColor = UIColor.green.cgColor
                 } else {
-                    titleLabel.textColor = .black
-                    self.layer.borderColor = UIColor.black.cgColor
+                    titleLabel.textColor = .lightGray
+                    self.layer.borderColor = UIColor.lightGray.cgColor
                 }
             }
         }

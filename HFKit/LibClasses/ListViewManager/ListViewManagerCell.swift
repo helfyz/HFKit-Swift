@@ -77,21 +77,18 @@ class CollectionViewSupplementaryView : UICollectionReusableView, ListManagerSup
 }
 
 class CollectionViewTempSupplementaryView : CollectionViewSupplementaryView {
-    var subView:UIView?
+
     override var model:ListViewManagerSupplementary? {
-        willSet {
-            subView?.removeFromSuperview()
-        }
         didSet {
             if let subView = model?.view {
-                self.subView = subView
+                subView.removeFromSuperview()
                 self.addSubview(subView)
+                subView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
                     subView.topAnchor.constraint(equalTo: self.topAnchor),
                     subView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                    subView.leftAnchor.constraint(equalTo: self.leftAnchor),
-                    subView.rightAnchor.constraint(equalTo: self.rightAnchor),
-                    
+                    subView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
+                    subView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 15),
                 ])
             }
         }
