@@ -31,6 +31,12 @@
 		A81B8048277EB58200FC70F8 /* UIScrollView+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */; };
 		A81B804D2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */; };
 		A81B804E2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */; };
+		A8497E50278FC1F900341A6C /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8497E4E278FC1F900341A6C /* VideoPlayerViewController.swift */; };
+		A8497E51278FC1F900341A6C /* VideoPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8497E4F278FC1F900341A6C /* VideoPlayerViewController.xib */; };
+		A8497E532791498500341A6C /* HFResourceLoadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8497E522791498400341A6C /* HFResourceLoadTask.swift */; };
+		A8497E5527914DD700341A6C /* HFResourceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8497E5427914DD700341A6C /* HFResourceCache.swift */; };
+		A8B1E77F278D70560019EB58 /* HFResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E77E278D70560019EB58 /* HFResourceLoader.swift */; };
+		A8B1E787278D822E0019EB58 /* VideoLoderExtions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E786278D822E0019EB58 /* VideoLoderExtions.swift */; };
 		A8F9D889277D60BB00228829 /* LoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D888277D60B600228829 /* LoggerManager.swift */; };
 		A8F9D88B277D60F200228829 /* LoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D88A277D60F200228829 /* LoggerTableViewCell.swift */; };
 		A8F9D88D277DA30E00228829 /* DispatchQueue+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */; };
@@ -65,6 +71,12 @@
 		A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+HF.swift"; sourceTree = "<group>"; };
 		A81B804B2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSettingCollectionCell.swift; sourceTree = "<group>"; };
 		A81B804C2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoggerSettingCollectionCell.xib; sourceTree = "<group>"; };
+		A8497E4E278FC1F900341A6C /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		A8497E4F278FC1F900341A6C /* VideoPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerViewController.xib; sourceTree = "<group>"; };
+		A8497E522791498400341A6C /* HFResourceLoadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFResourceLoadTask.swift; sourceTree = "<group>"; };
+		A8497E5427914DD700341A6C /* HFResourceCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFResourceCache.swift; sourceTree = "<group>"; };
+		A8B1E77E278D70560019EB58 /* HFResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFResourceLoader.swift; sourceTree = "<group>"; };
+		A8B1E786278D822E0019EB58 /* VideoLoderExtions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLoderExtions.swift; sourceTree = "<group>"; };
 		A8F9D888277D60B600228829 /* LoggerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerManager.swift; sourceTree = "<group>"; };
 		A8F9D88A277D60F200228829 /* LoggerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTableViewCell.swift; sourceTree = "<group>"; };
 		A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+HF.swift"; sourceTree = "<group>"; };
@@ -110,6 +122,8 @@
 				A80DE9562771AC140068AD6E /* TestCollectionViewController.swift */,
 				A80DE95A2772F5980068AD6E /* TestCollectionViewCell.swift */,
 				A80DE95B2772F5980068AD6E /* TestCollectionViewCell.xib */,
+				A8497E4E278FC1F900341A6C /* VideoPlayerViewController.swift */,
+				A8497E4F278FC1F900341A6C /* VideoPlayerViewController.xib */,
 				A80DE9312770736D0068AD6E /* Main.storyboard */,
 				A80DE9342770736F0068AD6E /* Assets.xcassets */,
 				A80DE9362770736F0068AD6E /* LaunchScreen.storyboard */,
@@ -143,6 +157,7 @@
 		A84046962779ABEF0013FE05 /* LibClasses */ = {
 			isa = PBXGroup;
 			children = (
+				A8B1E77A278D70060019EB58 /* VideoLoader */,
 				A8F9D88C277DA30D00228829 /* DispatchQueue+HF.swift */,
 				A81B8047277EB58200FC70F8 /* UIScrollView+HF.swift */,
 				A8F9D887277D608E00228829 /* HFLogger */,
@@ -150,6 +165,17 @@
 				A80DE93F2770737E0068AD6E /* ListViewManager */,
 			);
 			path = LibClasses;
+			sourceTree = "<group>";
+		};
+		A8B1E77A278D70060019EB58 /* VideoLoader */ = {
+			isa = PBXGroup;
+			children = (
+				A8B1E786278D822E0019EB58 /* VideoLoderExtions.swift */,
+				A8B1E77E278D70560019EB58 /* HFResourceLoader.swift */,
+				A8497E522791498400341A6C /* HFResourceLoadTask.swift */,
+				A8497E5427914DD700341A6C /* HFResourceCache.swift */,
+			);
+			path = VideoLoader;
 			sourceTree = "<group>";
 		};
 		A8F9D887277D608E00228829 /* HFLogger */ = {
@@ -227,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A80DE9382770736F0068AD6E /* LaunchScreen.storyboard in Resources */,
+				A8497E51278FC1F900341A6C /* VideoPlayerViewController.xib in Resources */,
 				A8F9D895277DB24800228829 /* LoggerRootViewController.xib in Resources */,
 				A81B804E2783FB0800FC70F8 /* LoggerSettingCollectionCell.xib in Resources */,
 				A80DE9352770736F0068AD6E /* Assets.xcassets in Resources */,
@@ -246,6 +273,7 @@
 			files = (
 				A80DE9502771743E0068AD6E /* TestTableViewController.swift in Sources */,
 				A80DE94A27707B040068AD6E /* LinkageViewController.swift in Sources */,
+				A8497E532791498500341A6C /* HFResourceLoadTask.swift in Sources */,
 				A81B8048277EB58200FC70F8 /* UIScrollView+HF.swift in Sources */,
 				A80DE9572771AC140068AD6E /* TestCollectionViewController.swift in Sources */,
 				A80DE9482770737E0068AD6E /* LinkageManager.swift in Sources */,
@@ -253,15 +281,19 @@
 				A80DE94C27707C0E0068AD6E /* LinkageModel.swift in Sources */,
 				A80DE9472770737E0068AD6E /* ListViewManagerCell.swift in Sources */,
 				A81B804D2783FB0800FC70F8 /* LoggerSettingCollectionCell.swift in Sources */,
+				A8497E5527914DD700341A6C /* HFResourceCache.swift in Sources */,
 				A8F9D88B277D60F200228829 /* LoggerTableViewCell.swift in Sources */,
+				A8B1E77F278D70560019EB58 /* HFResourceLoader.swift in Sources */,
 				A80DE9462770737E0068AD6E /* ListViewManagerCellModel.swift in Sources */,
 				A80DE9452770737E0068AD6E /* ListViewManager.swift in Sources */,
 				A80DE9592771B85E0068AD6E /* LinkageFullPageLayout.swift in Sources */,
+				A8497E50278FC1F900341A6C /* VideoPlayerViewController.swift in Sources */,
 				A8F9D889277D60BB00228829 /* LoggerManager.swift in Sources */,
 				A8F9D894277DB24800228829 /* LoggerRootViewController.swift in Sources */,
 				A80DE95C2772F5990068AD6E /* TestCollectionViewCell.swift in Sources */,
 				A80DE92C2770736D0068AD6E /* AppDelegate.swift in Sources */,
 				A81B8045277EAE0100FC70F8 /* LoggerSettingViewController.swift in Sources */,
+				A8B1E787278D822E0019EB58 /* VideoLoderExtions.swift in Sources */,
 				A8F9D88D277DA30E00228829 /* DispatchQueue+HF.swift in Sources */,
 				A80DE92E2770736D0068AD6E /* SceneDelegate.swift in Sources */,
 				A80DE94E277086B20068AD6E /* LinkageTitleView.swift in Sources */,

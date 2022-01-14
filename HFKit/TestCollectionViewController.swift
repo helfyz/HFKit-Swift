@@ -40,8 +40,11 @@ class TestCollectionViewController: UIViewController,LinkageChildViewControllerP
         listViewManager.setupListView(superView: self.view, layout: TestLayout())
         listViewManager.delegate = self
            let array = Array(0...100)
-        let section = ListViewManagerSection.sectionFor(data: array, cellClass: TestCollectionViewCell.self) { cell, cellModel in
+        let section = ListViewManagerSection.sectionFor(data: array, cellClass: TestCollectionViewCell.self) {[weak self] cell, cellModel in
                print(cellModel.data ?? "1")
+            
+            let player = VideoPlayerViewController()
+            self?.navigationController?.pushViewController(player, animated: true)
            }
         listViewManager.setupDatas(datas: [section])
        

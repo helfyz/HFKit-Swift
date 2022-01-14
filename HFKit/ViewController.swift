@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
       
        view.addSubview(linkageViewController.view)
+       addChild(linkageViewController)
        NSLayoutConstraint.activate([
             linkageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             linkageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -30,8 +31,16 @@ class ViewController: UIViewController {
         LinkageModel(title: "测试1", viewController: TestTableViewController()),
                 ]
        linkageViewController.setupModels(models: arr, selected: 0)
-      
-                               
        
+                               
+//       let url = "https://mvvideo5.meitudata.com/56ea0e90d6cb2653.mp4"
+//       let session: URLSession = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)
+//       var request = URLRequest(url: URL(string: url)!)
+//       request.cachePolicy = .reloadIgnoringLocalCacheData
+//       request.setValue("bytes=\(1)-\(1000)", forHTTPHeaderField: "Range")
+//       let task = session.dataTask(with: request) { data, response, error in
+//          print("response")
+//       }
+//       task.resume()
     }
 }
