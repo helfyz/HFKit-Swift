@@ -12,7 +12,7 @@ typealias ManagerCellCallback = (Any, ListViewManagerCellModel) -> ()
 
 class ListViewManagerCellModel: NSObject {
     static let ListCellClass = "HFKit.ListCellClass"
-    init(cellClass:AnyClass, identifier:String = ListCellClass) {
+    required init(cellClass:AnyClass, identifier:String = ListCellClass) {
         _cellClass = cellClass
         if identifier == ListViewManagerCellModel.ListCellClass {
             _identifier = NSStringFromClass(_cellClass)
@@ -37,17 +37,28 @@ class ListViewManagerCellModel: NSObject {
             return _identifier
         }
     }
-    
     // action方式处理  
     var action: Selector?
     // 回调方式处理
     var callback: ManagerCellCallback?
     // cell显示前的配置操作
     var cellConfig: ManagerCellCallback?
-    
-    
     //  对collectionView 生效
     var itemSize:CGSize = .zero
+}
+
+extension ListViewManagerCellModel {
+    
+   class func sectionFor(data:[Any], cellClass:AnyClass!, callBack: ManagerCellCallback? = nil) -> ListViewManagerSection {
+        let section = ListViewManagerSection()
+        for value in data {
+            let cellModel = Self.init(cellClass: cellClass)
+            cellModel.data = value
+            cellModel.callback = callBack
+            section.cellModels.append(cellModel)
+        }
+        return section
+    }
 }
 /**
     header & footer
@@ -55,7 +66,6 @@ class ListViewManagerCellModel: NSObject {
 class ListViewManagerSupplementary: NSObject {
     
     var title: String?
-    
     var data: Any?
     var height: CFloat = Float.leastNormalMagnitude
     
@@ -87,24 +97,9 @@ class ListViewManagerSupplementary: NSObject {
 }
 
 class ListViewManagerSection: NSObject {
-
     var cellModels:[ListViewManagerCellModel] = []
     //对section 的标识。用户获取section。如果不设置，不能通过identifier 获取或者reload该section
     var identifier: String?
-    
     var header: ListViewManagerSupplementary?
     var footer: ListViewManagerSupplementary?
-    
-    // 通过数组，直接创建section
-    public class func sectionFor(data:[Any], cellClass:AnyClass!, callBack: ManagerCellCallback? = nil) -> ListViewManagerSection {
-        let section = ListViewManagerSection()
-        for value in data {
-            let cellModel = ListViewManagerCellModel(cellClass: cellClass)
-            cellModel.data = value
-            cellModel.callback = callBack
-            section.cellModels.append(cellModel)
-        }
-        return section
-    }
-    
 }

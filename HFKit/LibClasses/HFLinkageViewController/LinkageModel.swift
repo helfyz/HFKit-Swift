@@ -14,7 +14,7 @@ protocol LinkageModelProtocol {
 class LinkageModel: NSObject,LinkageModelProtocol {
     var title: String?
     var viewController: LinkageChildViewControllerProtocol?
-    
+    var isCurrent: Bool = false
     convenience init(title:String?, viewController:LinkageChildViewControllerProtocol?) {
         self.init()
         self.title = title

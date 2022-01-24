@@ -34,7 +34,7 @@ class TestTableViewController: UIViewController,LinkageChildViewControllerProtoc
         tableManager.setupListView(superView: self.view)
            tableManager.delegate = self
            let array = Array(0...100)
-            let section = ListViewManagerSection.sectionFor(data: array, cellClass: TestTableViewCell.self) { cell, cellModel in
+            let section = ListViewManagerCellModel.sectionFor(data: array, cellClass: TestTableViewCell.self) { cell, cellModel in
                 let index = cellModel.data as? Int ?? 0
                 if index == 0 {
                     LoggerManager.manager.show()

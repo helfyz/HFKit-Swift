@@ -41,20 +41,17 @@ class LinkageViewController: UIViewController {
     var firstCanScrollerBounds: Bool = false
     var fullScreen : Bool = false // 内容全屏，不做安全区的约束
     var headerFixedHeight: CGFloat = 0 // 顶部区域悬浮高度，默认为titleView的高度
+    
+    var headerContainerHeight: NSLayoutConstraint?
+    var collectionViewHeight: NSLayoutConstraint?
+  
     lazy var headerContainerView: UIView = { // 头部容器  头部试图 + titleView
         let headerContainerView = UIView()
         contentView.addSubview(headerContainerView)
-        headerContainerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            headerContainerView.topAnchor.constraint(equalTo:  contentView.topAnchor),
-            headerContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            headerContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            headerContainerView.heightAnchor.constraint(equalToConstant: headerTotalHeight),
-        ])
-    
         return headerContainerView
     }()
-    var pageHeaderView : UIView?  // 头部视图
+    
+   var pageHeaderView : UIView?  // 头部视图
     fileprivate var _models: [LinkageModelProtocol] = []
 
     var pageModels:[LinkageModelProtocol] {
@@ -73,6 +70,7 @@ class LinkageViewController: UIViewController {
             titleView.changeIndex(index: curIndex, animation: true)
         }
     }
+   
     var linkpageManager: LinkageManager = LinkageManager()
     var pageHeaderHeight: CGFloat = 0
     var headerTotalHeight: CGFloat {
@@ -83,16 +81,7 @@ class LinkageViewController: UIViewController {
     lazy var contentView : UIView = {
         let contentView = UIView()
         contentScroller.addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo:  contentScroller.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: contentScroller.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: contentScroller.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: contentScroller.trailingAnchor),
-            contentView.widthAnchor.constraint(equalTo: contentScroller.widthAnchor),
-            
-        ])
-        contentView.backgroundColor = .purple
+   
         return contentView
     }()
     lazy var collectionView : UICollectionView = {
@@ -103,16 +92,9 @@ class LinkageViewController: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isDirectionalLockEnabled = true
         contentView.addSubview(collectionView)
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo:  contentView.topAnchor, constant: headerTotalHeight),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalTo: contentScroller.heightAnchor, constant: -headerFixedHeight)
-        ])
+    
         return collectionView
     }()
     lazy var contentScroller : LinkageScroller = {
@@ -123,30 +105,15 @@ class LinkageViewController: UIViewController {
         scroller.showsVerticalScrollIndicator = false
         scroller.showsHorizontalScrollIndicator = false
         scroller.backgroundColor = .blue
-        scroller.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scroller)
-        scroller.translatesAutoresizingMaskIntoConstraints = false
-        if(fullScreen) {
-            NSLayoutConstraint.activate([
-                scroller.topAnchor.constraint(equalTo: view.topAnchor),
-                scroller.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                scroller.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                scroller.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            ]);
-        } else {
-            NSLayoutConstraint.activate([
-                scroller.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                scroller.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                scroller.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                scroller.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            ]);
-        }
+  
         return scroller
     }()
    
     lazy var titleView:LinkageTitleViewProtocol = {
         let titleView = LinkageTitleView()
         titleView.delegate = self
+        headerContainerView.addSubview(titleView)
         return titleView
     }() {
         willSet{
@@ -158,12 +125,7 @@ class LinkageViewController: UIViewController {
         didSet {
             if let titleView = titleView as? UIView {
                 headerContainerView.addSubview(titleView)
-                NSLayoutConstraint.activate([
-                    titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
-                    titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
-                    titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
-                    titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
-                ])
+                makeTitleLayoutConstraint()
             }
         }
     }
@@ -176,49 +138,19 @@ class LinkageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        makeLayoutConstraint()
+        
     }
     
     func setupView() {
-        
-        if let titleView = titleView as? UIView {
-            headerContainerView.addSubview(titleView)
-            titleView.backgroundColor = .red
-            titleView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
-                titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
-                titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
-                titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
-            ])
-        }
-        collectionView.reloadData()
+      
+     
     }
     
+    // TODO
     func headerDidChanged() {
-        if let titleView = titleView as? UIView {
-            titleView.removeConstraints(titleView.constraints)
-
-            headerContainerView.addSubview(titleView)
-            NSLayoutConstraint.activate([
-                titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
-                titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
-                titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
-                titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
-            ])
-        }
-        headerContainerView.removeConstraints(headerContainerView.constraints)
-        collectionView.removeConstraints(collectionView.constraints)
-
-        NSLayoutConstraint.activate([
-            headerContainerView.heightAnchor.constraint(equalToConstant: headerTotalHeight),
-            
-            
-            collectionView.topAnchor.constraint(equalTo:  contentView.topAnchor, constant: headerTotalHeight),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalTo: contentScroller.heightAnchor, constant: -headerFixedHeight)
-        ])
+        headerContainerView.backgroundColor = .black
+        updateContainerHeaderHeight()
     }
     // 设置空，表示去掉
     func setupPageHeader(header:UIView?, heigth:CGFloat) {
@@ -229,21 +161,21 @@ class LinkageViewController: UIViewController {
         }
         if let header = header {
             pageHeaderView = header
-            pageHeaderHeight = 0
-        } else {
-            pageHeaderHeight = heigth
         }
+        pageHeaderHeight = heigth
     
         guard let pageHeaderView = pageHeaderView else {
             return
         }
         headerContainerView.addSubview(pageHeaderView)
+        pageHeaderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pageHeaderView.topAnchor.constraint(equalTo: headerContainerView.topAnchor),
             pageHeaderView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
             pageHeaderView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
             pageHeaderView.heightAnchor.constraint(equalToConstant: heigth)
         ])
+        headerDidChanged()
     }
     
     func setupModels(models:[LinkageModelProtocol], selected index:Int) {
@@ -257,6 +189,76 @@ class LinkageViewController: UIViewController {
     }
 
 }
+extension LinkageViewController {
+    
+    func makeLayoutConstraint() {
+        contentScroller.translatesAutoresizingMaskIntoConstraints = false
+        if(fullScreen) {
+            NSLayoutConstraint.activate([
+                contentScroller.topAnchor.constraint(equalTo: view.topAnchor),
+                contentScroller.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                contentScroller.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                contentScroller.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            ]);
+        } else {
+            NSLayoutConstraint.activate([
+                contentScroller.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                contentScroller.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                contentScroller.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                contentScroller.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            ]);
+        }
+  
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo:  contentScroller.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: contentScroller.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: contentScroller.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: contentScroller.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: contentScroller.widthAnchor),
+        ])
+        
+        headerContainerView.translatesAutoresizingMaskIntoConstraints = false
+        headerContainerHeight = headerContainerView.heightAnchor.constraint(equalToConstant: headerTotalHeight)
+        headerContainerHeight?.isActive = true
+        NSLayoutConstraint.activate([
+            headerContainerView.topAnchor.constraint(equalTo:  contentView.topAnchor),
+            headerContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            headerContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        ])
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionViewHeight = collectionView.heightAnchor.constraint(equalTo: contentScroller.heightAnchor, constant: -(headerFixedHeight + titleView.itemHeight))
+        collectionViewHeight?.isActive = true
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        ])
+        makeTitleLayoutConstraint()
+    }
+    
+    func makeTitleLayoutConstraint() {
+        if let titleView = titleView as? UIView {
+            titleView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                titleView.bottomAnchor.constraint(equalTo: headerContainerView.bottomAnchor),
+                titleView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor),
+                titleView.trailingAnchor.constraint(equalTo: headerContainerView.trailingAnchor),
+                titleView.heightAnchor.constraint(equalToConstant: self.titleView.itemHeight)
+            ])
+        }
+     
+    }
+    
+    func updateContainerHeaderHeight() {
+        headerContainerHeight?.constant = headerTotalHeight
+        collectionViewHeight?.constant = -(headerFixedHeight + titleView.itemHeight)
+    }
+}
+
+
 extension LinkageViewController: LinkageTitleViewDelegate {
     func linkageTitleView(view: LinkageTitleViewProtocol, indexDidChanged index: Int) {
         curIndex = index

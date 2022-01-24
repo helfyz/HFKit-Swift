@@ -39,6 +39,10 @@ class LinkageTitleLayout :UICollectionViewFlowLayout {
         itemSize = CGSize.init(width: 40, height: 40)
     }
 }
+
+class LinkageTitleCellItem : ListViewManagerCellModel {
+    var isSelected: Bool = false
+}
 class LinkageTitleCell: CollectionViewManagerCell {
     var label = UILabel()
     override func setupView() {
@@ -57,12 +61,10 @@ class LinkageTitleCell: CollectionViewManagerCell {
             if let pageModel = cellModel?.data as? LinkageModel {
                 label.text = pageModel.title
             }
-        }
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            label.textColor = isSelected ? .black : .lightGray
+            
+            if let cellModel = cellModel as? LinkageTitleCellItem {
+                label.textColor = cellModel.isSelected ? .black : .lightGray
+            }
         }
     }
 
@@ -87,21 +89,34 @@ class LinkageTitleView: UIView, LinkageTitleViewProtocol {
         listViewManager.collectionView.backgroundColor = .yellow
     }
     func setupData(models:[LinkageModelProtocol], select index:Int) {
-        let section = ListViewManagerSection.sectionFor(data: models, cellClass: LinkageTitleCell.self) {[weak self]  cell, cellModel in
+    
+        let section = LinkageTitleCellItem.sectionFor(data: models, cellClass: LinkageTitleCell.self) {[weak self]  cell, cellModel in
             if let cell = cell as? UICollectionViewCell, let index = self?.listViewManager.collectionView.indexPath(for: cell)?.row, let titleView = self   {
                 self?.delegate?.linkageTitleView(view: titleView, indexDidChanged: index)
             }
         }
+        for i in 0..<section.cellModels.count  {
+            let cellModel = section.cellModels[i] as? LinkageTitleCellItem
+            cellModel?.isSelected = index == i
+        }
         listViewManager.setupDatas(datas: [section])
-        listViewManager.collectionView.selectItem(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+     
     }
     func changeIndex(index: Int, animation: Bool) {
-        listViewManager.collectionView.selectItem(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        guard let section = listViewManager.sectionModels.first else {
+            return
+        }
+        for i in 0..<section.cellModels.count  {
+            let cellModel = section.cellModels[i] as? LinkageTitleCellItem
+            cellModel?.isSelected = index == i
+        }
+        listViewManager.reloadData()
     }
     func reload() {
         listViewManager.collectionView.reloadData()
      }
 }
+
 extension LinkageTitleView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: 100, height: itemHeight)

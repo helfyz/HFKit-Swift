@@ -50,26 +50,9 @@ class ListViewManager: NSObject {
             section.cellModels = datas
         }
         registCellCalss()
-//        if addMore {
-//            var inserts:[IndexPath] = []
-//            let sectionIndex:Int = sectionModels.firstIndex(of: section) ?? 0 - 1
-//            let sectionPreLastRow = section.cellModels.count - datas.count
-//            if sectionIndex < 0, sectionPreLastRow < 0 {
-//                reloadData()
-//            } else {
-//                for index in sectionPreLastRow ..< section.cellModels.count {
-//                    inserts.append(IndexPath(row: index, section: sectionIndex))
-//                }
-//                insertData(inserts: inserts)
-//            }
-//        } else {
-//            reloadData()
-//        }
         reloadData()
     }
-//    func setupListView(superView view:UIView) {
-//        fatalError("Must Override")
-//    }
+
     func registCellCalss() {
         fatalError("Must Override")
     }

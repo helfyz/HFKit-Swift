@@ -40,12 +40,19 @@ class TestCollectionViewController: UIViewController,LinkageChildViewControllerP
         listViewManager.setupListView(superView: self.view, layout: TestLayout())
         listViewManager.delegate = self
            let array = Array(0...100)
-        let section = ListViewManagerSection.sectionFor(data: array, cellClass: TestCollectionViewCell.self) {[weak self] cell, cellModel in
+        let section = ListViewManagerCellModel.sectionFor(data: array, cellClass: TestCollectionViewCell.self) {_, cellModel in
                print(cellModel.data ?? "1")
-            
-            let player = VideoPlayerViewController()
-            self?.navigationController?.pushViewController(player, animated: true)
            }
+        
+        // 视频测试
+        section.cellModels.first?.data = "视频播放"
+        section.cellModels.first?.callback = { [weak self] cell, cellModel in
+               
+                let player = VideoPlayerViewController()
+                self?.navigationController?.pushViewController(player, animated: true)
+        }
+    
+    
         listViewManager.setupDatas(datas: [section])
        
         // Do any additional setup after loading the view.

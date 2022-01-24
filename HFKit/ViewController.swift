@@ -32,6 +32,9 @@ class ViewController: UIViewController {
                 ]
        linkageViewController.setupModels(models: arr, selected: 0)
        
+       let headView = UIView(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
+       headView.backgroundColor = .red
+       linkageViewController.setupPageHeader(header: headView, heigth: 100)
                                
 //       let url = "https://mvvideo5.meitudata.com/56ea0e90d6cb2653.mp4"
 //       let session: URLSession = URLSession(configuration: .default, delegate: nil, delegateQueue: nil)
