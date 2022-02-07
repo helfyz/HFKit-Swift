@@ -1,0 +1,30 @@
+PODS:
+  - HFKit (0.0.1):
+    - HFKit/Extensions (= 0.0.1)
+    - HFKit/HFLinkageViewController (= 0.0.1)
+    - HFKit/HFLogger (= 0.0.1)
+    - HFKit/ListViewManager (= 0.0.1)
+    - HFKit/VideoLoader (= 0.0.1)
+  - HFKit/Extensions (0.0.1)
+  - HFKit/HFLinkageViewController (0.0.1)
+  - HFKit/HFLogger (0.0.1):
+    - HFKit/ListViewManager
+  - HFKit/ListViewManager (0.0.1):
+    - HFKit/Extensions
+  - HFKit/VideoLoader (0.0.1):
+    - HFKit/Extensions
+
+DEPENDENCIES:
+  - HFKit (from `./`)
+
+EXTERNAL SOURCES:
+  HFKit:
+    :path: "./"
+    :tag: master
+
+SPEC CHECKSUMS:
+  HFKit: 82d61690ebc5cda858600fac603721853df33288
+
+PODFILE CHECKSUM: 961dbd30775710671f0725cec8063cc609daa0d9
+
+COCOAPODS: 1.11.2

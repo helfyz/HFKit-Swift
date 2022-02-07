@@ -1,0 +1,748 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FE158E1EAB7AF1C9827C20030CF56EB /* HFKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9A879A6499EC336731392DE80792D5 /* HFKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		161735B4B5F11A6B1DB4E6573B1C7F4B /* ListViewManagerCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73689CBC62575FF8A41AD6B5E2E7BA82 /* ListViewManagerCellModel.swift */; };
+		247F94A4F05911C705F3D0FC339AB2D8 /* LoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63368C71846A7107C10C294792A77B94 /* LoggerManager.swift */; };
+		2B5BF67FDC78C19DA909C9AA1E8238ED /* HFResourceLoadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7353E17535F7A95661146CD6C3A24A /* HFResourceLoadTask.swift */; };
+		2FE19C5CF2C83BB6F843180E4EA8AF79 /* LoggerSettingCollectionCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = EE8376AC0CB57C14E69495C4007AF099 /* LoggerSettingCollectionCell.xib */; };
+		5FE5DA314C9509484E80E1F69DB80FC6 /* LoggerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF489FD411034BAC1812ABB974E71E5 /* LoggerSettingViewController.swift */; };
+		633E9F64EEE77004A95CC87A6E37C720 /* Pods-HFKitDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9019835DDD3C3E2D61D592C80BBAA9CC /* Pods-HFKitDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66EE17716EF308F81BABFB9AFE503F6F /* LoggerTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = DD335D04B44185948B5D652E50FD3F26 /* LoggerTableViewCell.xib */; };
+		6C6FBD859BA026FF16ECCCF7150DE7C6 /* LinkageFullPageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7F80051CD9045DEE359D475567CD4 /* LinkageFullPageLayout.swift */; };
+		7238C41F02077610249A6ADD8A4D74FE /* LinkageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134242555567E8652BEC74DA2DCB0DB /* LinkageManager.swift */; };
+		752D3E42044F78404B8B3F55483CBFAC /* LoggerSettingViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = B70C9E28CEA6E9D245EAFD403E7B99D4 /* LoggerSettingViewController.xib */; };
+		79172425CA4D50A62DC701BCEF235E63 /* HFResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59CADD62B50065A9B1EB4C0432B681 /* HFResourceLoader.swift */; };
+		7DAE270A870C911D50E627477DA5AE93 /* DispatchQueue+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828AF5CE1A338E37599CC4964F846C4 /* DispatchQueue+HF.swift */; };
+		8507CB52B7AD5772BEFFCF233D0E8C58 /* LoggerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB220BB56908217E72587B71709F4719 /* LoggerTableViewCell.swift */; };
+		96F6C284107C25B77DA09B71456D792E /* LoggerSettingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECDCB2E315EA154D6FB89859DCFCA75 /* LoggerSettingCollectionCell.swift */; };
+		97A79811C29DD65377D02394C5AE6A94 /* UIScrollView+HF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024389AA9DD21476AB784007BAF54C6 /* UIScrollView+HF.swift */; };
+		9E7AB66B952A8193288B1F644754B7FA /* ListViewManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF1060CC508EAE2391835FC7711F19 /* ListViewManagerCell.swift */; };
+		A00436902C3481BAA694D86F1864D500 /* HFResourceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42440349FEFA37470A341F44036783A /* HFResourceCache.swift */; };
+		AF07543F76DCD1D0403327D23704EC0A /* LinkageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F431B941989A2E2C9B26EAC73190F814 /* LinkageModel.swift */; };
+		B246FFC53610BA9E8499EF021EC2544B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B2FC113283BC9614071014598915CECB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C395C1FCC51EBA5E5B541A0507E7D309 /* Pods-HFKitDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 102C844B2573AE401141316BB8095891 /* Pods-HFKitDemo-dummy.m */; };
+		C3F655D38443BF05B797438DDC2AF2CC /* HFKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFB71270950A6161DB8C193B52191A /* HFKit-dummy.m */; };
+		D3DB43FC10A0AF3E5C665EAB22452870 /* LinkageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A041AE7324D336CB1BB6783B8796C67 /* LinkageViewController.swift */; };
+		DFD507C3F7863B36AA14EABA377785D5 /* VideoLoderExtions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB9C6B66CA5DD37CB151AA6063C7F6 /* VideoLoderExtions.swift */; };
+		E595D78BD23847727E59ED97B31A4507 /* LoggerRootViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 54E88C20347DCE56F72EA788259EEAEA /* LoggerRootViewController.xib */; };
+		E88A0DC3336FE36AB215A393BB24517F /* LoggerRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF405326743E425621FC10CBA5EA02A2 /* LoggerRootViewController.swift */; };
+		F1507F38C6EDB1C748D35F94E0CCBC63 /* LinkageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77DBCA8E99F1F8D34E76B966F554D3 /* LinkageTitleView.swift */; };
+		FE04D0BF7CB3DB7E97655E5749B8B93D /* ListViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D3AEBA191858353F9A71424C9F981 /* ListViewManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D66E074A6DEF9227E1CA8B467EF5A90C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C10E850B15F02DA6F626D30BF883ADAB;
+			remoteInfo = HFKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ADE756E65EAB291A05BBF9EEC71E52A /* HFKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HFKit-prefix.pch"; sourceTree = "<group>"; };
+		0D9A879A6499EC336731392DE80792D5 /* HFKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HFKit-umbrella.h"; sourceTree = "<group>"; };
+		1024389AA9DD21476AB784007BAF54C6 /* UIScrollView+HF.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+HF.swift"; path = "LibClasses/Extensions/UIScrollView+HF.swift"; sourceTree = "<group>"; };
+		102C844B2573AE401141316BB8095891 /* Pods-HFKitDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HFKitDemo-dummy.m"; sourceTree = "<group>"; };
+		1828AF5CE1A338E37599CC4964F846C4 /* DispatchQueue+HF.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+HF.swift"; path = "LibClasses/Extensions/DispatchQueue+HF.swift"; sourceTree = "<group>"; };
+		1A041AE7324D336CB1BB6783B8796C67 /* LinkageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkageViewController.swift; path = LibClasses/HFLinkageViewController/LinkageViewController.swift; sourceTree = "<group>"; };
+		1ECDCB2E315EA154D6FB89859DCFCA75 /* LoggerSettingCollectionCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerSettingCollectionCell.swift; path = LibClasses/HFLogger/LoggerSettingCollectionCell.swift; sourceTree = "<group>"; };
+		27A5D73D3EA2AE8014B03FE32353D3CA /* HFKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HFKit.debug.xcconfig; sourceTree = "<group>"; };
+		27AB9C6B66CA5DD37CB151AA6063C7F6 /* VideoLoderExtions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoLoderExtions.swift; path = LibClasses/VideoLoader/VideoLoderExtions.swift; sourceTree = "<group>"; };
+		288D6DEDE7C2418C283878007EC37C01 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		3D59CADD62B50065A9B1EB4C0432B681 /* HFResourceLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HFResourceLoader.swift; path = LibClasses/VideoLoader/HFResourceLoader.swift; sourceTree = "<group>"; };
+		3FAFB71270950A6161DB8C193B52191A /* HFKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HFKit-dummy.m"; sourceTree = "<group>"; };
+		43B6DC32822F87748D3F50560C647F8D /* HFKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HFKit.modulemap; sourceTree = "<group>"; };
+		4AEF1060CC508EAE2391835FC7711F19 /* ListViewManagerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewManagerCell.swift; path = LibClasses/ListViewManager/ListViewManagerCell.swift; sourceTree = "<group>"; };
+		4D35084546F1FA3FA71F917EA0537937 /* HFKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HFKit; path = HFKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB081C13CB9798D58EE0D373E40CF44 /* Pods-HFKitDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HFKitDemo-Info.plist"; sourceTree = "<group>"; };
+		4FC20D0B6C696D994B21F0D31A918F70 /* Pods-HFKitDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HFKitDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		54E88C20347DCE56F72EA788259EEAEA /* LoggerRootViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LoggerRootViewController.xib; path = LibClasses/HFLogger/LoggerRootViewController.xib; sourceTree = "<group>"; };
+		6134242555567E8652BEC74DA2DCB0DB /* LinkageManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkageManager.swift; path = LibClasses/HFLinkageViewController/LinkageManager.swift; sourceTree = "<group>"; };
+		63368C71846A7107C10C294792A77B94 /* LoggerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerManager.swift; path = LibClasses/HFLogger/LoggerManager.swift; sourceTree = "<group>"; };
+		6FC0A809982B5A535D359B81974E94F7 /* HFKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HFKit-Info.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		73689CBC62575FF8A41AD6B5E2E7BA82 /* ListViewManagerCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewManagerCellModel.swift; path = LibClasses/ListViewManager/ListViewManagerCellModel.swift; sourceTree = "<group>"; };
+		79BB9B56B9B6FCBA6EFE10E4AC9FEB18 /* Pods-HFKitDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HFKitDemo.modulemap"; sourceTree = "<group>"; };
+		8B1201660EBE3B397849BBE096EFD6DB /* HFKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HFKit.release.xcconfig; sourceTree = "<group>"; };
+		8B77DBCA8E99F1F8D34E76B966F554D3 /* LinkageTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkageTitleView.swift; path = LibClasses/HFLinkageViewController/LinkageTitleView.swift; sourceTree = "<group>"; };
+		8BF408A02114E3C27ACA802C08AA8943 /* Pods-HFKitDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HFKitDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9019835DDD3C3E2D61D592C80BBAA9CC /* Pods-HFKitDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HFKitDemo-umbrella.h"; sourceTree = "<group>"; };
+		909053E71017253FAC19C78A6228F927 /* Pods-HFKitDemo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HFKitDemo"; path = Pods_HFKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AFF489FD411034BAC1812ABB974E71E5 /* LoggerSettingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerSettingViewController.swift; path = LibClasses/HFLogger/LoggerSettingViewController.swift; sourceTree = "<group>"; };
+		B1E7F80051CD9045DEE359D475567CD4 /* LinkageFullPageLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkageFullPageLayout.swift; path = LibClasses/HFLinkageViewController/LinkageFullPageLayout.swift; sourceTree = "<group>"; };
+		B47D3AEBA191858353F9A71424C9F981 /* ListViewManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListViewManager.swift; path = LibClasses/ListViewManager/ListViewManager.swift; sourceTree = "<group>"; };
+		B70C9E28CEA6E9D245EAFD403E7B99D4 /* LoggerSettingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LoggerSettingViewController.xib; path = LibClasses/HFLogger/LoggerSettingViewController.xib; sourceTree = "<group>"; };
+		BF2E8CB66098999222762D9ABC439C2B /* Pods-HFKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HFKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C39C4FD996D32F556AC165325C84EB40 /* Pods-HFKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HFKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C42440349FEFA37470A341F44036783A /* HFResourceCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HFResourceCache.swift; path = LibClasses/VideoLoader/HFResourceCache.swift; sourceTree = "<group>"; };
+		CB220BB56908217E72587B71709F4719 /* LoggerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerTableViewCell.swift; path = LibClasses/HFLogger/LoggerTableViewCell.swift; sourceTree = "<group>"; };
+		CE7353E17535F7A95661146CD6C3A24A /* HFResourceLoadTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HFResourceLoadTask.swift; path = LibClasses/VideoLoader/HFResourceLoadTask.swift; sourceTree = "<group>"; };
+		DD335D04B44185948B5D652E50FD3F26 /* LoggerTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LoggerTableViewCell.xib; path = LibClasses/HFLogger/LoggerTableViewCell.xib; sourceTree = "<group>"; };
+		DFF179E4915BBA4AE12B72C30CDBEE33 /* HFKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HFKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EE8376AC0CB57C14E69495C4007AF099 /* LoggerSettingCollectionCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LoggerSettingCollectionCell.xib; path = LibClasses/HFLogger/LoggerSettingCollectionCell.xib; sourceTree = "<group>"; };
+		F431B941989A2E2C9B26EAC73190F814 /* LinkageModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkageModel.swift; path = LibClasses/HFLinkageViewController/LinkageModel.swift; sourceTree = "<group>"; };
+		FE5602AFB434FDE294754F9B7DFDE547 /* Pods-HFKitDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HFKitDemo-frameworks.sh"; sourceTree = "<group>"; };
+		FF405326743E425621FC10CBA5EA02A2 /* LoggerRootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerRootViewController.swift; path = LibClasses/HFLogger/LoggerRootViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		051017557428D0CBF82B143463D08363 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B246FFC53610BA9E8499EF021EC2544B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA2C76FE92684B841BB78EC2C7490387 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FC113283BC9614071014598915CECB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B9F14BE5F2FF6AD7215FFCF28C98ACB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D35084546F1FA3FA71F917EA0537937 /* HFKit */,
+				909053E71017253FAC19C78A6228F927 /* Pods-HFKitDemo */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1441681676FFFEC94E61CAC5AF11A92E /* ListViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				B47D3AEBA191858353F9A71424C9F981 /* ListViewManager.swift */,
+				4AEF1060CC508EAE2391835FC7711F19 /* ListViewManagerCell.swift */,
+				73689CBC62575FF8A41AD6B5E2E7BA82 /* ListViewManagerCellModel.swift */,
+			);
+			name = ListViewManager;
+			sourceTree = "<group>";
+		};
+		1B602F426D28C541EE01DF8D231BA946 /* VideoLoader */ = {
+			isa = PBXGroup;
+			children = (
+				C42440349FEFA37470A341F44036783A /* HFResourceCache.swift */,
+				3D59CADD62B50065A9B1EB4C0432B681 /* HFResourceLoader.swift */,
+				CE7353E17535F7A95661146CD6C3A24A /* HFResourceLoadTask.swift */,
+				27AB9C6B66CA5DD37CB151AA6063C7F6 /* VideoLoderExtions.swift */,
+			);
+			name = VideoLoader;
+			sourceTree = "<group>";
+		};
+		259A4DAF2C91B9529E94A36B7D6CD486 /* HFKit */ = {
+			isa = PBXGroup;
+			children = (
+				5FF219EC1588E0B46903A44A6A7768B1 /* Extensions */,
+				A125E0B6AED74C404AF3DD1ECF41A066 /* HFLinkageViewController */,
+				6047E6310285789B2CDA0F89E72F82AF /* HFLogger */,
+				1441681676FFFEC94E61CAC5AF11A92E /* ListViewManager */,
+				E380CB3F4223FA2DB9D71F4FD228DFD5 /* Pod */,
+				F9A4F0655EC35A68C05F4552E6400160 /* Support Files */,
+				1B602F426D28C541EE01DF8D231BA946 /* VideoLoader */,
+			);
+			name = HFKit;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5FF219EC1588E0B46903A44A6A7768B1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1828AF5CE1A338E37599CC4964F846C4 /* DispatchQueue+HF.swift */,
+				1024389AA9DD21476AB784007BAF54C6 /* UIScrollView+HF.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		6047E6310285789B2CDA0F89E72F82AF /* HFLogger */ = {
+			isa = PBXGroup;
+			children = (
+				63368C71846A7107C10C294792A77B94 /* LoggerManager.swift */,
+				FF405326743E425621FC10CBA5EA02A2 /* LoggerRootViewController.swift */,
+				54E88C20347DCE56F72EA788259EEAEA /* LoggerRootViewController.xib */,
+				1ECDCB2E315EA154D6FB89859DCFCA75 /* LoggerSettingCollectionCell.swift */,
+				EE8376AC0CB57C14E69495C4007AF099 /* LoggerSettingCollectionCell.xib */,
+				AFF489FD411034BAC1812ABB974E71E5 /* LoggerSettingViewController.swift */,
+				B70C9E28CEA6E9D245EAFD403E7B99D4 /* LoggerSettingViewController.xib */,
+				CB220BB56908217E72587B71709F4719 /* LoggerTableViewCell.swift */,
+				DD335D04B44185948B5D652E50FD3F26 /* LoggerTableViewCell.xib */,
+			);
+			name = HFLogger;
+			sourceTree = "<group>";
+		};
+		991DAA2DBA20DDB0C7AF2244F58F960C /* Pods-HFKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				79BB9B56B9B6FCBA6EFE10E4AC9FEB18 /* Pods-HFKitDemo.modulemap */,
+				8BF408A02114E3C27ACA802C08AA8943 /* Pods-HFKitDemo-acknowledgements.markdown */,
+				4FC20D0B6C696D994B21F0D31A918F70 /* Pods-HFKitDemo-acknowledgements.plist */,
+				102C844B2573AE401141316BB8095891 /* Pods-HFKitDemo-dummy.m */,
+				FE5602AFB434FDE294754F9B7DFDE547 /* Pods-HFKitDemo-frameworks.sh */,
+				4EB081C13CB9798D58EE0D373E40CF44 /* Pods-HFKitDemo-Info.plist */,
+				9019835DDD3C3E2D61D592C80BBAA9CC /* Pods-HFKitDemo-umbrella.h */,
+				BF2E8CB66098999222762D9ABC439C2B /* Pods-HFKitDemo.debug.xcconfig */,
+				C39C4FD996D32F556AC165325C84EB40 /* Pods-HFKitDemo.release.xcconfig */,
+			);
+			name = "Pods-HFKitDemo";
+			path = "Target Support Files/Pods-HFKitDemo";
+			sourceTree = "<group>";
+		};
+		A125E0B6AED74C404AF3DD1ECF41A066 /* HFLinkageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1E7F80051CD9045DEE359D475567CD4 /* LinkageFullPageLayout.swift */,
+				6134242555567E8652BEC74DA2DCB0DB /* LinkageManager.swift */,
+				F431B941989A2E2C9B26EAC73190F814 /* LinkageModel.swift */,
+				8B77DBCA8E99F1F8D34E76B966F554D3 /* LinkageTitleView.swift */,
+				1A041AE7324D336CB1BB6783B8796C67 /* LinkageViewController.swift */,
+			);
+			name = HFLinkageViewController;
+			sourceTree = "<group>";
+		};
+		BD69A5F5B306CE6CCD77BC92C07D478B /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				259A4DAF2C91B9529E94A36B7D6CD486 /* HFKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				BD69A5F5B306CE6CCD77BC92C07D478B /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				0B9F14BE5F2FF6AD7215FFCF28C98ACB /* Products */,
+				D63784B5D46C95C04D5C6CFFED78137C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D63784B5D46C95C04D5C6CFFED78137C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				991DAA2DBA20DDB0C7AF2244F58F960C /* Pods-HFKitDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E380CB3F4223FA2DB9D71F4FD228DFD5 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				DFF179E4915BBA4AE12B72C30CDBEE33 /* HFKit.podspec */,
+				288D6DEDE7C2418C283878007EC37C01 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		F9A4F0655EC35A68C05F4552E6400160 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				43B6DC32822F87748D3F50560C647F8D /* HFKit.modulemap */,
+				3FAFB71270950A6161DB8C193B52191A /* HFKit-dummy.m */,
+				6FC0A809982B5A535D359B81974E94F7 /* HFKit-Info.plist */,
+				0ADE756E65EAB291A05BBF9EEC71E52A /* HFKit-prefix.pch */,
+				0D9A879A6499EC336731392DE80792D5 /* HFKit-umbrella.h */,
+				27A5D73D3EA2AE8014B03FE32353D3CA /* HFKit.debug.xcconfig */,
+				8B1201660EBE3B397849BBE096EFD6DB /* HFKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/HFKit";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4A1F0723B5428D32F971BDD616A3ADA6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FE158E1EAB7AF1C9827C20030CF56EB /* HFKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A8F224284E69054DFA1745F2D34FAD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				633E9F64EEE77004A95CC87A6E37C720 /* Pods-HFKitDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C10E850B15F02DA6F626D30BF883ADAB /* HFKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E03466A7DCA6BA84D78B82F00BE0DDED /* Build configuration list for PBXNativeTarget "HFKit" */;
+			buildPhases = (
+				4A1F0723B5428D32F971BDD616A3ADA6 /* Headers */,
+				DC7DF9838B344E53976D1FD55F322EA6 /* Sources */,
+				AA2C76FE92684B841BB78EC2C7490387 /* Frameworks */,
+				B7CED6E2A13E52AD7C3C8A628B40C4BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HFKit;
+			productName = HFKit;
+			productReference = 4D35084546F1FA3FA71F917EA0537937 /* HFKit */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5BC4E612A31D2D911B7314B964E7E7C /* Pods-HFKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15E856227A8CFFED70E3E569FB39152B /* Build configuration list for PBXNativeTarget "Pods-HFKitDemo" */;
+			buildPhases = (
+				7A8F224284E69054DFA1745F2D34FAD0 /* Headers */,
+				A37A54A8CC1D738B7C378EB7FBBD2737 /* Sources */,
+				051017557428D0CBF82B143463D08363 /* Frameworks */,
+				C97F0FF2125C065517ADBB79067F9025 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F7B379788633B286FEE93757AF75915 /* PBXTargetDependency */,
+			);
+			name = "Pods-HFKitDemo";
+			productName = Pods_HFKitDemo;
+			productReference = 909053E71017253FAC19C78A6228F927 /* Pods-HFKitDemo */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0B9F14BE5F2FF6AD7215FFCF28C98ACB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C10E850B15F02DA6F626D30BF883ADAB /* HFKit */,
+				D5BC4E612A31D2D911B7314B964E7E7C /* Pods-HFKitDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7CED6E2A13E52AD7C3C8A628B40C4BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C97F0FF2125C065517ADBB79067F9025 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A37A54A8CC1D738B7C378EB7FBBD2737 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C395C1FCC51EBA5E5B541A0507E7D309 /* Pods-HFKitDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7DF9838B344E53976D1FD55F322EA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DAE270A870C911D50E627477DA5AE93 /* DispatchQueue+HF.swift in Sources */,
+				C3F655D38443BF05B797438DDC2AF2CC /* HFKit-dummy.m in Sources */,
+				A00436902C3481BAA694D86F1864D500 /* HFResourceCache.swift in Sources */,
+				79172425CA4D50A62DC701BCEF235E63 /* HFResourceLoader.swift in Sources */,
+				2B5BF67FDC78C19DA909C9AA1E8238ED /* HFResourceLoadTask.swift in Sources */,
+				6C6FBD859BA026FF16ECCCF7150DE7C6 /* LinkageFullPageLayout.swift in Sources */,
+				7238C41F02077610249A6ADD8A4D74FE /* LinkageManager.swift in Sources */,
+				AF07543F76DCD1D0403327D23704EC0A /* LinkageModel.swift in Sources */,
+				F1507F38C6EDB1C748D35F94E0CCBC63 /* LinkageTitleView.swift in Sources */,
+				D3DB43FC10A0AF3E5C665EAB22452870 /* LinkageViewController.swift in Sources */,
+				FE04D0BF7CB3DB7E97655E5749B8B93D /* ListViewManager.swift in Sources */,
+				9E7AB66B952A8193288B1F644754B7FA /* ListViewManagerCell.swift in Sources */,
+				161735B4B5F11A6B1DB4E6573B1C7F4B /* ListViewManagerCellModel.swift in Sources */,
+				247F94A4F05911C705F3D0FC339AB2D8 /* LoggerManager.swift in Sources */,
+				E88A0DC3336FE36AB215A393BB24517F /* LoggerRootViewController.swift in Sources */,
+				E595D78BD23847727E59ED97B31A4507 /* LoggerRootViewController.xib in Sources */,
+				96F6C284107C25B77DA09B71456D792E /* LoggerSettingCollectionCell.swift in Sources */,
+				2FE19C5CF2C83BB6F843180E4EA8AF79 /* LoggerSettingCollectionCell.xib in Sources */,
+				5FE5DA314C9509484E80E1F69DB80FC6 /* LoggerSettingViewController.swift in Sources */,
+				752D3E42044F78404B8B3F55483CBFAC /* LoggerSettingViewController.xib in Sources */,
+				8507CB52B7AD5772BEFFCF233D0E8C58 /* LoggerTableViewCell.swift in Sources */,
+				66EE17716EF308F81BABFB9AFE503F6F /* LoggerTableViewCell.xib in Sources */,
+				97A79811C29DD65377D02394C5AE6A94 /* UIScrollView+HF.swift in Sources */,
+				DFD507C3F7863B36AA14EABA377785D5 /* VideoLoderExtions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F7B379788633B286FEE93757AF75915 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HFKit;
+			target = C10E850B15F02DA6F626D30BF883ADAB /* HFKit */;
+			targetProxy = D66E074A6DEF9227E1CA8B467EF5A90C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		676AE45147D772531D6AF7B4A6A46139 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF2E8CB66098999222762D9ABC439C2B /* Pods-HFKitDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HFKitDemo/Pods-HFKitDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HFKitDemo/Pods-HFKitDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6CF0EB69A8EF161C946A074D92EA5EFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C39C4FD996D32F556AC165325C84EB40 /* Pods-HFKitDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HFKitDemo/Pods-HFKitDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HFKitDemo/Pods-HFKitDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		80900D7231817A270609CA94EEF22251 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A5D73D3EA2AE8014B03FE32353D3CA /* HFKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HFKit/HFKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HFKit/HFKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HFKit/HFKit.modulemap";
+				PRODUCT_MODULE_NAME = HFKit;
+				PRODUCT_NAME = HFKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		C7B2689DA734907B8C05482A91769210 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B1201660EBE3B397849BBE096EFD6DB /* HFKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HFKit/HFKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HFKit/HFKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HFKit/HFKit.modulemap";
+				PRODUCT_MODULE_NAME = HFKit;
+				PRODUCT_NAME = HFKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15E856227A8CFFED70E3E569FB39152B /* Build configuration list for PBXNativeTarget "Pods-HFKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				676AE45147D772531D6AF7B4A6A46139 /* Debug */,
+				6CF0EB69A8EF161C946A074D92EA5EFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E03466A7DCA6BA84D78B82F00BE0DDED /* Build configuration list for PBXNativeTarget "HFKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80900D7231817A270609CA94EEF22251 /* Debug */,
+				C7B2689DA734907B8C05482A91769210 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

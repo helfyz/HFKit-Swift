@@ -1,0 +1,59 @@
+{
+  "name": "HFKit",
+  "version": "0.0.1",
+  "summary": "HFKit-Swift",
+  "homepage": "https://github.com/helfyz",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "helfy": "562812743@qq.com"
+  },
+  "social_media_url": "https://github.com/helfyz",
+  "source": {
+    "git": "https://github.com/helfyz/HFKit-Swift.git",
+    "tag": "0.0.1"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Extensions",
+      "source_files": "LibClasses/Extensions/**/*"
+    },
+    {
+      "name": "VideoLoader",
+      "source_files": "LibClasses/VideoLoader/**/*",
+      "dependencies": {
+        "HFKit/Extensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "HFLinkageViewController",
+      "source_files": "LibClasses/HFLinkageViewController/**/*"
+    },
+    {
+      "name": "ListViewManager",
+      "source_files": "LibClasses/ListViewManager/**/*",
+      "dependencies": {
+        "HFKit/Extensions": [
+
+        ]
+      }
+    },
+    {
+      "name": "HFLogger",
+      "source_files": "LibClasses/HFLogger/**/*",
+      "dependencies": {
+        "HFKit/ListViewManager": [
+
+        ]
+      }
+    }
+  ]
+}
