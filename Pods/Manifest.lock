@@ -1,14 +1,18 @@
 PODS:
+  - Alamofire (5.4.4)
   - HFKit (0.0.1):
     - HFKit/Extensions (= 0.0.1)
     - HFKit/HFLinkageViewController (= 0.0.1)
     - HFKit/HFLogger (= 0.0.1)
+    - HFKit/HFNetworing (= 0.0.1)
     - HFKit/ListViewManager (= 0.0.1)
     - HFKit/VideoLoader (= 0.0.1)
   - HFKit/Extensions (0.0.1)
   - HFKit/HFLinkageViewController (0.0.1)
   - HFKit/HFLogger (0.0.1):
     - HFKit/ListViewManager
+  - HFKit/HFNetworing (0.0.1):
+    - Alamofire
   - HFKit/ListViewManager (0.0.1):
     - HFKit/Extensions
   - HFKit/VideoLoader (0.0.1):
@@ -17,13 +21,18 @@ PODS:
 DEPENDENCIES:
   - HFKit (from `./`)
 
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
 EXTERNAL SOURCES:
   HFKit:
     :path: "./"
     :tag: master
 
 SPEC CHECKSUMS:
-  HFKit: 82d61690ebc5cda858600fac603721853df33288
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  HFKit: b159d5d08284cdc6146092a62a1ad2d1bbe6c7fe
 
 PODFILE CHECKSUM: 961dbd30775710671f0725cec8063cc609daa0d9
 

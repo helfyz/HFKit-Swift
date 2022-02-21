@@ -54,6 +54,15 @@
 
         ]
       }
+    },
+    {
+      "name": "HFNetworing",
+      "source_files": "LibClasses/HFNetworing/**/*",
+      "dependencies": {
+        "Alamofire": [
+
+        ]
+      }
     }
   ]
 }

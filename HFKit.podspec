@@ -34,6 +34,11 @@ Pod::Spec.new do |s|
               logger.dependency 'HFKit/ListViewManager'
     end
   
+    s.subspec 'HFNetworing' do |networing|
+      networing.source_files = 'LibClasses/HFNetworing/**/*'
+      networing.dependency 'Alamofire'
+    end
+  
    s.requires_arc = true
 end
 
