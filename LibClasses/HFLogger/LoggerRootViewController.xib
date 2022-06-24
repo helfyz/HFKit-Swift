@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoggerRootViewController" customModule="HFKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoggerRootViewController" customModule="sxsiosapp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="uGM-zf-hUH" id="n80-DT-BLy"/>
                 <outlet property="textField" destination="6At-h7-7TH" id="Nr1-5o-Vjj"/>
@@ -85,6 +86,35 @@
                     <rect key="frame" x="0.0" y="128" width="414" height="719"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ1-qT-SsL">
+                    <rect key="frame" x="359" y="752" width="40" height="80"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GI0-vL-Toy">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="35"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="到顶"/>
+                            <connections>
+                                <action selector="scrollToTop:" destination="-1" eventType="touchUpInside" id="vEO-Nt-GgS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mm-5i-bei">
+                            <rect key="frame" x="0.0" y="45" width="40" height="35"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="到底"/>
+                            <connections>
+                                <action selector="scrollToBottom:" destination="-1" eventType="touchUpInside" id="GxZ-6V-aoK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="S9I-dd-vc6"/>
+                        <constraint firstAttribute="height" constant="80" id="b4u-NJ-7bt"/>
+                    </constraints>
+                </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HF Logger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ5-ZW-koZ">
                     <rect key="frame" x="0.0" y="847" width="414" height="15"/>
                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,6 +127,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="am5-bj-MHT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7aj-Jm-LXh"/>
+                <constraint firstItem="KQ5-ZW-koZ" firstAttribute="top" secondItem="ZJ1-qT-SsL" secondAttribute="bottom" constant="15" id="HTg-bO-XcN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KQ5-ZW-koZ" secondAttribute="bottom" id="MW8-7k-fmf"/>
                 <constraint firstItem="am5-bj-MHT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SfE-ua-SC0"/>
                 <constraint firstItem="KQ5-ZW-koZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U7V-hO-Hgq"/>
@@ -104,6 +135,7 @@
                 <constraint firstItem="uGM-zf-hUH" firstAttribute="top" secondItem="am5-bj-MHT" secondAttribute="bottom" id="aFd-Gg-Jwk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="am5-bj-MHT" secondAttribute="trailing" id="cRe-YZ-BFp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uGM-zf-hUH" secondAttribute="bottom" constant="15" id="f5j-4w-Rc4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZJ1-qT-SsL" secondAttribute="trailing" constant="15" id="kB3-Dd-TNf"/>
                 <constraint firstItem="KQ5-ZW-koZ" firstAttribute="top" secondItem="uGM-zf-hUH" secondAttribute="bottom" id="tDO-p3-ahx"/>
                 <constraint firstAttribute="trailing" secondItem="KQ5-ZW-koZ" secondAttribute="trailing" id="wwI-14-90C"/>
                 <constraint firstItem="uGM-zf-hUH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ycn-5x-fSE"/>

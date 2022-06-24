@@ -16,7 +16,7 @@ import UIKit
 }
 
 open class TableViewManagerCell: UITableViewCell,ListManagerCellProtocol {
-    var cellModel: ListViewManagerCellModel?
+    open var cellModel: ListViewManagerCellModel?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -24,7 +24,7 @@ open class TableViewManagerCell: UITableViewCell,ListManagerCellProtocol {
     required public init(coder: NSCoder) {
         super.init(coder: coder)!
     }
-    override open func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupView()
@@ -56,17 +56,17 @@ open class CollectionViewManagerCell: UICollectionViewCell,ListManagerCellProtoc
 /**
  主要针对CollectionView 使用
  **/
-class CollectionViewSupplementaryView : UICollectionReusableView, ListManagerSupplementaryProtocol {
+open class CollectionViewSupplementaryView : UICollectionReusableView, ListManagerSupplementaryProtocol {
     
     var model:ListViewManagerSupplementary?
-    required override init(frame: CGRect) {
+    required public override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         super.init(coder: coder)!
     }
-    override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupView()

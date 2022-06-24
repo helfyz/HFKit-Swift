@@ -74,8 +74,8 @@ class LoggerSettingViewController: UIViewController, UICollectionViewDelegate {
     let tagsSection = ListViewManagerSection()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "设置"
-        
+        view.backgroundColor = .white
+        navigationItem.title = "设置"
         listViewManager.setupListView(superView: self.view, layout: LoggerSettingLayout())
         listViewManager.delegate = self
         DispatchQueue.hf.async {
@@ -148,8 +148,5 @@ class LoggerSettingViewController: UIViewController, UICollectionViewDelegate {
             self.listViewManager.setupDatas(datas: [self.typeSection,self.tagsSection])
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        
-    }
+  
 }

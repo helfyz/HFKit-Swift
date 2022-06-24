@@ -37,6 +37,8 @@ class LinkageScroller: UIScrollView,UIGestureRecognizerDelegate {
    }
 }
 
+typealias LinkageageCurIndexDidChange = (Int, LinkageModelProtocol) -> ()
+
 open class LinkageViewController: UIViewController {
     var firstCanScrollerBounds: Bool = false
     var fullScreen : Bool = false // 内容全屏，不做安全区的约束
@@ -54,6 +56,7 @@ open class LinkageViewController: UIViewController {
    var pageHeaderView : UIView?  // 头部视图
     fileprivate var _models: [LinkageModelProtocol] = []
 
+    var curIndexDidChange:LinkageageCurIndexDidChange?
     var pageModels:[LinkageModelProtocol] {
         get {
             _models
@@ -65,9 +68,21 @@ open class LinkageViewController: UIViewController {
             model.viewController?.linkageControllerWillDisappear?(animation: true)
         }
         didSet {
+       
             let model = pageModels[curIndex]
+            curIndexDidChange?(curIndex, model)
              model.viewController?.linkageControllerWillAppear?(animation: true)
-            titleView.changeIndex(index: curIndex, animation: true)
+            titleView.changeIndex(index: curIndex, animation: false)
+        }
+    }
+    
+    var curViewController: UIViewController? {
+        get {
+            if pageModels.count > curIndex {
+                let model = pageModels[curIndex]
+                return model.viewController as? UIViewController
+            }
+            return nil
         }
     }
    
@@ -80,8 +95,6 @@ open class LinkageViewController: UIViewController {
     var bottomSpace: CGFloat = 0  // 底部留空
     lazy var contentView : UIView = {
         let contentView = UIView()
-        contentScroller.addSubview(contentView)
-   
         return contentView
     }()
     lazy var collectionView : UICollectionView = {
@@ -90,11 +103,10 @@ open class LinkageViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isDirectionalLockEnabled = true
-        contentView.addSubview(collectionView)
-    
         return collectionView
     }()
     lazy var contentScroller : LinkageScroller = {
@@ -104,29 +116,25 @@ open class LinkageViewController: UIViewController {
         scroller.isDirectionalLockEnabled = true
         scroller.showsVerticalScrollIndicator = false
         scroller.showsHorizontalScrollIndicator = false
-        scroller.backgroundColor = .blue
-        view.addSubview(scroller)
-  
         return scroller
     }()
    
     lazy var titleView:LinkageTitleViewProtocol = {
         let titleView = LinkageTitleView()
         titleView.delegate = self
-        headerContainerView.addSubview(titleView)
         return titleView
     }() {
-        willSet{
-            if let titleView = titleView as? UIView {
+        didSet {
+            if let titleView = oldValue as? UIView {
                 titleView.removeConstraints(titleView.constraints)
                 titleView.removeFromSuperview()
             }
-        }
-        didSet {
+            titleView.delegate = self
             if let titleView = titleView as? UIView {
                 headerContainerView.addSubview(titleView)
                 makeTitleLayoutConstraint()
             }
+          
         }
     }
     deinit {
@@ -142,14 +150,42 @@ open class LinkageViewController: UIViewController {
         
     }
     
+    override open var shouldAutomaticallyForwardAppearanceMethods: Bool {
+        get {
+            false
+        }
+    }
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        curViewController?.beginAppearanceTransition(true, animated: animated)
+    }
+    
+    override open func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        curViewController?.endAppearanceTransition()
+    }
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        curViewController?.beginAppearanceTransition(false, animated: animated)
+
+    }
+    override open func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        curViewController?.endAppearanceTransition()
+    }
+    
     func setupView() {
-      
-     
+        view.addSubview(contentScroller)
+        contentScroller.addSubview(contentView)
+        contentView.addSubview(collectionView)
+        
+        if let titleView = titleView as? UIView {
+            headerContainerView.addSubview(titleView)
+        }
     }
     
     // TODO
     func headerDidChanged() {
-        headerContainerView.backgroundColor = .black
         updateContainerHeaderHeight()
     }
     // 设置空，表示去掉
@@ -261,8 +297,8 @@ extension LinkageViewController {
 
 extension LinkageViewController: LinkageTitleViewDelegate {
     func linkageTitleView(view: LinkageTitleViewProtocol, indexDidChanged index: Int) {
+        collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .centeredHorizontally, animated: false)
         curIndex = index
-        collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
 extension LinkageViewController: UICollectionViewDelegate,UICollectionViewDataSource {
@@ -316,8 +352,9 @@ extension LinkageViewController: UIScrollViewDelegate {
             pageModels.forEach { model in
                 model.viewController?.outerScrollViewDidScroll?(scroller: scrollView)
             }
-        } else if scrollView.isEqual(contentView) {
+        } else if scrollView.isEqual(collectionView) {
             view.endEditing(true)
+            titleView.pageScrollerDidScroller(scroller: scrollView)
         }
     }
     

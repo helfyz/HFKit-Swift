@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,23 +17,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="322" height="58"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyJ-fu-nWu">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFk-ga-1P2" customClass="UILabel">
                         <rect key="frame" x="5" y="5" width="312" height="48"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.79607843140000001" green="0.80000000000000004" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ZyJ-fu-nWu" secondAttribute="bottom" constant="5" id="97z-ky-kjS"/>
-                    <constraint firstItem="ZyJ-fu-nWu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="CUR-Ls-PY8"/>
-                    <constraint firstAttribute="trailing" secondItem="ZyJ-fu-nWu" secondAttribute="trailing" constant="5" id="UKw-QF-L5d"/>
-                    <constraint firstItem="ZyJ-fu-nWu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="fmp-Bq-CdG"/>
+                    <constraint firstAttribute="bottom" secondItem="HFk-ga-1P2" secondAttribute="bottom" constant="5" id="6Tb-zt-Z3D"/>
+                    <constraint firstItem="HFk-ga-1P2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jOm-qV-JFL"/>
+                    <constraint firstItem="HFk-ga-1P2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="wzN-bS-s0k"/>
+                    <constraint firstAttribute="trailing" secondItem="HFk-ga-1P2" secondAttribute="trailing" constant="5" id="yvz-bh-dYX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="messageLabel" destination="ZyJ-fu-nWu" id="Va8-De-Wkg"/>
+                <outlet property="messageLabel" destination="HFk-ga-1P2" id="oth-BV-mj2"/>
             </connections>
             <point key="canvasLocation" x="139.13043478260872" y="102.45535714285714"/>
         </tableViewCell>

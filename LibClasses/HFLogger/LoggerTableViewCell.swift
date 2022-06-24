@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+//import YYText
 open class LoggerCellModel: ListViewManagerCellModel {
-   public enum LogType:Int, CaseIterable{
-        case normal
+    public enum LogType:Int, CaseIterable{
+        case normal = 0
         case error
         case warning
         
@@ -50,11 +50,16 @@ class LoggerTableViewCell: TableViewManagerCell {
                 messageLabel?.textColor = .yellow
                 break
             }
+            
             messageLabel?.text = cellModel.systemInfo + cellModel.logInfo
         }
     }
   
     override func setupView() {
         self.backgroundColor = .clear
+        messageLabel.font = UIFont.systemFont(ofSize: 14)
+//        messageLabel.displaysAsynchronously = true
+        messageLabel.numberOfLines = 0
+        messageLabel.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 10
     }
 }

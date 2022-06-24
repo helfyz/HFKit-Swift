@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoggerRootViewController: UIViewController {
     
     var tableManager = TableViewManager()
@@ -14,8 +15,10 @@ class LoggerRootViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         tableManager.setupListView(superView: contentView)
-        tableManager.tableView.backgroundColor = .clear
+        tableManager.tableView.scrollsToTop = false
+        tableManager.tableView.allowsSelection = false
         if #available(iOS 15.0, *) {
             tableManager.tableView.sectionHeaderTopPadding = 0;
         }
@@ -24,7 +27,6 @@ class LoggerRootViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func fillterSearch() {
@@ -47,6 +49,17 @@ class LoggerRootViewController: UIViewController {
     @IBAction func textDidChanged(_ sender: Any) {
        // TODO 输入过程进行匹配有点耗性能
     }
+    
+    
+    @IBAction func scrollToTop(_ sender: Any) {
+        if tableManager.tableView.visibleCells.count > 0 {
+            tableManager.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableView.ScrollPosition.top, animated: false)
+        }
+    }
+    @IBAction func scrollToBottom(_ sender: Any) {
+//        tableManager.tableView.scrollToBottom()
+        LoggerManager.manager.delayScrollToBottom()
+    }
 }
 extension LoggerRootViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -61,7 +74,7 @@ extension LoggerRootViewController:UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? LoggerTableViewCell {
-            cell.backgroundColor = indexPath.row % 2 == 0 ? .black.withAlphaComponent(0.2) : .white.withAlphaComponent(0.2)
+            cell.contentView.backgroundColor = indexPath.row % 2 == 0 ? .black.withAlphaComponent(0.6) : .black.withAlphaComponent(0.5)
         }
     }
 }

@@ -10,15 +10,23 @@ protocol LinkageTitleViewDelegate:NSObjectProtocol {
     func linkageTitleView(view:LinkageTitleViewProtocol, indexDidChanged index:Int)
 }
 
-protocol LinkageTitleViewProtocol  {
+protocol LinkageTitleViewProtocol: NSObjectProtocol  {
 
     var delegate:LinkageTitleViewDelegate? { get set }
     var itemHeight: CGFloat {get set}
-    
     func setupData(models:[LinkageModelProtocol], select index:Int)
     func changeIndex(index:Int, animation:Bool)
     func reload()
+    
+    func pageScrollerDidScroller(scroller:UIScrollView)
 }
+
+extension LinkageTitleViewProtocol {
+    func pageScrollerDidScroller(scroller:UIScrollView) {
+        
+    }
+}
+
 /**
  默认实现，比较简单，大部分需要根据自己的需求定制一个titleView
  */
@@ -71,6 +79,7 @@ class LinkageTitleCell: CollectionViewManagerCell {
 }
 class LinkageTitleView: UIView, LinkageTitleViewProtocol {
 
+    var selectIndex: Int = 0
     weak var delegate: LinkageTitleViewDelegate?
     var itemHeight: CGFloat = 40
     var listViewManager = CollectionViewManager()

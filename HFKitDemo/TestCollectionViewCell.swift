@@ -7,9 +7,10 @@
 
 import UIKit
 import HFKit
+
 class TestCollectionViewCell: CollectionViewManagerCell {
     @IBOutlet weak var label: UILabel!
-    override var cellModel:ListViewManagerCellModel? {
+    override var cellModel: ListViewManagerCellModel? {
         didSet {
             if let data = cellModel?.data {
                 if let dataStr = data as? String {

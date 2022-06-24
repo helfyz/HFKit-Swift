@@ -8,7 +8,7 @@
 import UIKit
 import HFKit
 class TestTableViewCell : TableViewManagerCell {
-    var cellModel:ListViewManagerCellModel? {
+    override var cellModel:ListViewManagerCellModel? {
         didSet {
             if let index = cellModel?.data as? Int {
                 textLabel?.text = "\(index)"

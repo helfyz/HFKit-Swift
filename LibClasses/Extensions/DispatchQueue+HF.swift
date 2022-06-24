@@ -7,5 +7,7 @@
 import Dispatch
 
 extension DispatchQueue {
-    static let hf = DispatchQueue(label: "com.hf.Queue",qos: .userInteractive, attributes: .concurrent)
+    static let hf = DispatchQueue(label: "com.hf.Queue",qos: .default, attributes: .concurrent)
+    
+    static let hfSerial = DispatchQueue(label: "com.hf.Queue.serial")
 }

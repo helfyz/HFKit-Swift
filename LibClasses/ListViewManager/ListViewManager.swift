@@ -8,55 +8,71 @@
 
 import UIKit
 
-open class ListViewManager: NSObject {
+protocol ListViewManagerDataHandle {
+    var sectionModels:[ListViewManagerSection] { get set }
+    
+    func registCellCalss()
+    func reloadData()
+}
+
+open class ListViewManager: NSObject, ListViewManagerDataHandle {
+    
     struct delegateFlags {
         var didScroll:Bool = false
         var didSelectRow:Bool = false
     }
+    
     var sectionModels:[ListViewManagerSection] = []
     fileprivate var flags:delegateFlags = delegateFlags()
     
-    open func setupDatas(datas:[ListViewManagerSection], addMore:Bool = false) {
-        if addMore {
-            sectionModels += datas
-        } else {
-            sectionModels = datas
-        }
-        registCellCalss()
-        reloadData()
-    }
     
+    open func setupDatas(datas:[ListViewManagerSection], addMore:Bool = false) {
+         if addMore {
+             sectionModels += datas
+         } else {
+             sectionModels = datas
+         }
+         registCellCalss()
+         reloadData()
+     }
     open func setupSectionDatas(section:ListViewManagerSection? = nil, datas:[ListViewManagerCellModel], addMore:Bool = false) {
-        var addMore = addMore
-        var section = section
-        if section == nil {
-            if sectionModels.count > 0 {
-                section = sectionModels.last
-            } else {
-                section = ListViewManagerSection()
-                sectionModels.append(section!)
-            }
-        }
-        guard let section = section else {
-            return
-        }
-        
-        if(section.cellModels.count == 0) {
-            addMore = false
-        }
-        if addMore {
-            section.cellModels += datas
-        } else {
-            section.cellModels = datas
-        }
-        registCellCalss()
-        reloadData()
-    }
+         var addMore = addMore
+         var section = section
+         if section == nil {
+             if sectionModels.count > 0 {
+                 section = sectionModels.last
+             } else {
+                 section = ListViewManagerSection()
+                 sectionModels.append(section!)
+             }
+         }
+         guard let section = section else {
+             return
+         }
+         
+         if(section.cellModels.count == 0) {
+             addMore = false
+         }
+         if addMore {
+             section.cellModels += datas
+         } else {
+             section.cellModels = datas
+         }
+         registCellCalss()
+         reloadData()
+     }
+    
 
+
+
+ 
+//    func setupListView(superView view:UIView) {
+//        fatalError("Must Override")
+//    }
     func registCellCalss() {
         fatalError("Must Override")
     }
-    open func reloadData() {
+    func reloadData() {
         fatalError("Must Override")
     }
     func insertData(inserts:[IndexPath]) {
@@ -65,8 +81,12 @@ open class ListViewManager: NSObject {
 }
 
 open class TableViewManager: ListViewManager {
-    open lazy var tableView = {
-        UITableView()
+    open lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
+        return tableView
     }()
     open weak var delegate:UITableViewDelegate? {
         didSet {
@@ -82,8 +102,7 @@ open class TableViewManager: ListViewManager {
     }
    
     open func setupListView(superView view:UIView) {
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupListView()
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -94,6 +113,13 @@ open class TableViewManager: ListViewManager {
         ])
 //        tableView.frame = view.bounds
     }
+    
+    /// 不需要设置autolayout版本
+    open func setupListView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     open override func reloadData() {
         tableView.reloadData()
     }
@@ -112,8 +138,6 @@ open class TableViewManager: ListViewManager {
             tableView.endUpdates()
         }
     }
-  
-    
     
     override func registCellCalss() {
         let fileManager = FileManager.default
@@ -164,7 +188,7 @@ open class TableViewManager: ListViewManager {
         }
     }
     
-    override open func forwardingTarget(for aSelector: Selector!) -> Any? {
+    open override func forwardingTarget(for aSelector: Selector!) -> Any? {
         if ((delegate?.responds(to: aSelector)) != nil) {
             return delegate
         } else if ((dataSource?.responds(to: aSelector)) != nil) {
@@ -173,7 +197,7 @@ open class TableViewManager: ListViewManager {
             return super.forwardingTarget(for: aSelector)
         }
     }
-    override open func responds(to aSelector: Selector!) -> Bool {
+    open override func responds(to aSelector: Selector!) -> Bool {
         var res = super.responds(to: aSelector)
         if !res {
             res = (self.delegate?.responds(to: aSelector) ?? false) || (self.dataSource?.responds(to: aSelector) ?? false)
@@ -197,13 +221,13 @@ extension TableViewManager: UITableViewDataSource {
         return CGFloat.leastNormalMagnitude
     }
     
-    open func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         sectionModels.count
     }
-    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sectionModels[section].cellModels.count
     }
-    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sectionModels[indexPath.section].cellModels[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: model.identifier, for: indexPath)
         if let ManagerCell = cell as? ListManagerCellProtocol {
@@ -213,13 +237,13 @@ extension TableViewManager: UITableViewDataSource {
         return cell
     }
     
-    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         heigthOfSectionSupplementary(supplementary: sectionModels[section].header)
     }
-    open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         sectionModels[section].header?.title
     }
-    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let header = sectionModels[section].header, let identifier = header.identifier, header.canReusable {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifier)
             if let view =  view as? ListManagerSupplementaryProtocol {
@@ -254,7 +278,7 @@ extension TableViewManager: UITableViewDelegate {
         } else {
             let model = sectionModels[indexPath.section].cellModels[indexPath.row]
             if let action = model.action {
-                self.delegate?.perform(action)
+                self.delegate?.perform((action), with: model)
             } else if let callBack = model.callback, let cell = tableView.cellForRow(at: indexPath) {
                 callBack(cell, model)
             }
@@ -276,7 +300,7 @@ open class CollectionViewManager: ListViewManager {
             collectionView.delegate = self
         }
     }
-    weak var dataSource:UICollectionViewDataSource? {
+    open weak var dataSource:UICollectionViewDataSource? {
         didSet {
             collectionView.dataSource = self
         }
@@ -285,8 +309,7 @@ open class CollectionViewManager: ListViewManager {
         if let layout = layout {
             collectionView.collectionViewLayout = layout
         }
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        setupDataSoure()
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -297,7 +320,17 @@ open class CollectionViewManager: ListViewManager {
         ])
     }
     
-    open override func reloadData() {
+    open func setupListView(layout:UICollectionViewLayout? = nil) {
+        if let layout = layout {
+            collectionView.collectionViewLayout = layout
+        }
+        setupDataSoure()
+    }
+    open func setupDataSoure() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    override func reloadData() {
         collectionView.reloadData()
     }
     override func insertData(inserts:[IndexPath]) {
@@ -359,7 +392,7 @@ open class CollectionViewManager: ListViewManager {
    
     }
     
-    override open func forwardingTarget(for aSelector: Selector!) -> Any? {
+    open override func forwardingTarget(for aSelector: Selector!) -> Any? {
         if ((delegate?.responds(to: aSelector)) != nil) {
             return delegate
         } else if ((dataSource?.responds(to: aSelector)) != nil) {
@@ -368,7 +401,7 @@ open class CollectionViewManager: ListViewManager {
             return super.forwardingTarget(for: aSelector)
         }
     }
-    override open func responds(to aSelector: Selector!) -> Bool {
+    open override func responds(to aSelector: Selector!) -> Bool {
         var res = super.responds(to: aSelector)
         if !res {
             res = (self.delegate?.responds(to: aSelector) ?? false) || (self.dataSource?.responds(to: aSelector) ?? false)

@@ -8,12 +8,26 @@
 import Foundation
 import UIKit
 
+/**
+  快捷使用
+ **/
+public let HFLoggerManger = LoggerManager.manager
+func HFLogger(message:String, type:LoggerCellModel.LogType = .normal, tag: String? = nil ) {
+    LoggerManager.manager.log(message: message, type:type, tag:tag)
+}
+public func HFLoggerShow() {
+    LoggerManager.manager.show()
+}
+public func HFLoggerHidden() {
+    LoggerManager.manager.hidden()
+}
+
+
 struct LoggerManagerFiltter {
     var types:Set<LoggerCellModel.LogType> = []
     var tags:Set<String> = []     // 过滤的tag
     var key:String?       // 需要的过滤内容
 }
-
 
 class LoggerWindow: UIWindow {
     
@@ -39,21 +53,27 @@ class LoggerWindow: UIWindow {
         self.setup()
     }
     func setup() {
+
+        rootViewController = UINavigationController(rootViewController: loggerViewController)
+//        backgroundColor = .black.withAlphaComponent(0.5)
+        loggerViewController.view.backgroundColor = .white
+        windowLevel = .alert
         
-        self.backgroundColor = .black.withAlphaComponent(0.5)
-        self.windowLevel = .alert
-        self.rootViewController = UINavigationController(rootViewController: loggerViewController)
     }
     
+    
+    
+
 }
 
-open class LoggerManager: NSObject, UITableViewDelegate {
- 
+@objcMembers open class LoggerManager: NSObject, UITableViewDelegate {
     public static let manager = LoggerManager()
+    
+    
+    open var isShow :Bool  = false
     open var loggerAllTags:Set<String> = []    // 使用日志系统中，所有的tags， 
     
     var loggerDatas:[LoggerCellModel] = []   // 日志原始记录
-    let semaphore: DispatchSemaphore = DispatchSemaphore.init(value: 1)
     var fillter:LoggerManagerFiltter = LoggerManagerFiltter() {
         didSet {
             filtterDidChanged()
@@ -84,10 +104,17 @@ open class LoggerManager: NSObject, UITableViewDelegate {
         fillter.key = key
     }
     
+    @objc
+    func log(message:String, typeRaw:Int = 0, tag: String? = nil) {
+    #if DEBUG
+            log(message: message, type: LoggerCellModel.LogType(rawValue: typeRaw) ?? .normal, tag: tag)
+        
+    #endif
+   }
     // 输出日志
     open func log(message:String, type:LoggerCellModel.LogType = .normal, tag: String? = nil) {
-        semaphore.wait()
-        DispatchQueue.hf.async {
+#if DEBUG
+        DispatchQueue.hfSerial.sync {
             let cellModel = LoggerCellModel(cellClass: LoggerTableViewCell.self)
             cellModel.logInfo = message
             cellModel.logType = type
@@ -100,10 +127,17 @@ open class LoggerManager: NSObject, UITableViewDelegate {
             let timeStr = formatter.string(from: Date())
             cellModel.systemInfo = timeStr + " --> "
             self.loggerDatas.append(cellModel)
-            self.showDataHandle(cellModel: cellModel)
-            self.semaphore.signal()
+            if isShow {
+                self.showDataHandle(cellModel: cellModel)
+            }
         }
-       
+        if let tag = tag {
+            print("%@ : %@",tag,message)
+//            NSLog("%@ : %@",tag,message)
+        } else {
+            print("%@",message)
+        }
+#endif
     }
     
     func filtterDidChanged() {
@@ -157,7 +191,7 @@ open class LoggerManager: NSObject, UITableViewDelegate {
         let row = (sections.last?.cellModels.count ?? 0) - 1
         if section >= 0, row > 0 {
             let tableView = self.window.loggerViewController.tableManager.tableView
-            if tableView.window != nil {
+            if tableView.window != nil, tableView.numberOfSections > section, tableView.numberOfRows(inSection: section) > row {
                 tableView.scrollToRow(at: IndexPath(row: row, section: section), at: .bottom, animated: false)
             }
         }
@@ -191,9 +225,16 @@ open class LoggerManager: NSObject, UITableViewDelegate {
 extension LoggerManager {
     open func show() {
         window.makeKeyAndVisible()
+        isShow = true
+        window.loggerViewController.loadViewIfNeeded()
+        /// 显示的时候，重新显示数据
+        filtterDidChanged()
     }
     open func hidden() {
         window.isHidden = true
+        isShow = false
+        /// 隐藏的时候，清理显示
+        self.window.loggerViewController.tableManager.setupDatas(datas: [], addMore: false)
     }
     
     open func fullAction() {

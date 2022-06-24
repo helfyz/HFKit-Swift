@@ -12,13 +12,14 @@ public typealias ManagerCellCallback = (Any, ListViewManagerCellModel) -> ()
 
 
 open class ListViewManagerCellModel: NSObject {
-    required public init(cellClass:AnyClass, identifier:String = "HFKit.ListCellClass") {
+    required public init(cellClass:AnyClass, identifier:String = "HFKit.ListCellClass", data: Any? = nil) {
         _cellClass = cellClass
         if identifier == "HFKit.ListCellClass" {
             _identifier = NSStringFromClass(_cellClass)
         } else {
             _identifier = identifier
         }
+        self.data = data
     }
     open var data: Any?
     
@@ -37,7 +38,7 @@ open class ListViewManagerCellModel: NSObject {
             return _identifier
         }
     }
-    // action方式处理  
+    // action方式处理
     open var action: Selector?
     // 回调方式处理
     open var callback: ManagerCellCallback?
@@ -45,6 +46,7 @@ open class ListViewManagerCellModel: NSObject {
     open var cellConfig: ManagerCellCallback?
     //  对collectionView 生效
     var itemSize:CGSize = .zero
+    
 }
 
 extension ListViewManagerCellModel {
