@@ -30,7 +30,7 @@ open class TableViewManagerCell: UITableViewCell,ListManagerCellProtocol {
         setupView()
     }
     func setupView() {
-        fatalError("Must Override")
+//        fatalError("Must Override")
     }
 }
 
